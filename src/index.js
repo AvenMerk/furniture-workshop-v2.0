@@ -4,8 +4,9 @@ import {applyMiddleware, createStore} from 'redux'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import {createLogger} from 'redux-logger'
-import reducer from './reducers/productsReducer'
-import App from './containers/App'
+import reducer from './reducers/combineReducers'
+import FurnitureWorkshop from './containers/FurnitureWorkshop'
+
 
 const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
@@ -19,7 +20,7 @@ const store = createStore(
 
 render(
     <Provider store={store}>
-        <App/>
+            <FurnitureWorkshop />
     </Provider>,
     document.getElementById('root')
 );

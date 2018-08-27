@@ -1,4 +1,3 @@
-import {combineReducers} from 'redux'
 import {RECEIVE_PRODUCTS, REQUEST_PRODUCTS} from "../actions/productsAction"
 
 const productsReducer = (state = {isFetching: false, products: []}, action) => {
@@ -20,8 +19,4 @@ const productsReducer = (state = {isFetching: false, products: []}, action) => {
     }
 };
 
-const rootReducer = combineReducers({
-    productsReducer
-});
-
-export default rootReducer
+export default productsReducer
