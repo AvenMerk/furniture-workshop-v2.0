@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchProducts} from '../actions/productsAction'
 import Products from '../components/Products'
 
-class App extends React.Component {
+class ProductsGet extends React.Component {
 
     componentDidMount() {
         const {dispatch} = this.props;
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
 };
 
 // props из редьюсера мапятся в компоненту в этом методе
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(ProductsGet)

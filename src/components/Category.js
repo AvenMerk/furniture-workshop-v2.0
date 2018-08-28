@@ -4,7 +4,7 @@ const Category = ({category}) => (
     <ul>
         {category.map((categ, index) =>
             <li key={index}>
-                {`id: ${categ.id}, name: ${categ.name}`}
+                <button>{`id: ${categ.id}, name: ${categ.name}`}</button>
             </li>
         )}
     </ul>
