@@ -5,7 +5,7 @@ const Category = ({category}) => (
         {category.map((categ, index) =>
             <li key={index}>
                 <button id={categ.id}
-                    onClick={() => { window.location.replace('/products');
+                    onClick={() => {  window.location.href = '/products';
                         document.cookie = "id = " + categ.id + ";path=/"}
                     }>{`id: ${categ.id}, name: ${categ.name}`}</button>
             </li>

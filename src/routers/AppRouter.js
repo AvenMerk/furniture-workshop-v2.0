@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from '../components/HomePage';
 import EmployeesPage from '../components/EmployeesPage';
@@ -10,7 +10,7 @@ import ProductsPage from '../components/ProductsPage';
 
 const AppRouter = () => (
     <BrowserRouter>
-        <div>
+        <React.Fragment>
             <Header />
             <Switch>
                 <Route path="/" component={HomePage} exact={true} />
@@ -21,7 +21,7 @@ const AppRouter = () => (
                 <Route component={NotFoundPage} />
             </Switch>
             <Footer />
-        </div>
+        </React.Fragment>
     </BrowserRouter>
 );
 
