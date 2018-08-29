@@ -13,7 +13,7 @@ export const receiveEmployees = (json) => ({
 
 export const fetchEmployees = () => (dispatch) => {
     dispatch(requestEmployees());
-    return fetch(`http://furniture-service.herokuapp.com/employee`)
+    return fetch(`http://localhost:3005/employee`)
         .then(
             response => response.json(),
             error => console.log("Something went wrong", error)

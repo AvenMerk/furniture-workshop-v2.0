@@ -13,10 +13,11 @@ export const receiveCategory = (json) => ({
 
 export const fetchCategory = () => (dispatch) => {
     dispatch(requestCategory());
-    return fetch(`http://furniture-service.herokuapp.com/category`)
+    return fetch(`http://localhost:3005/category`)
         .then(
             response => response.json(),
             error => console.log("Something went wrong", error)
         )
         .then(json => dispatch(receiveCategory(json)))
 };
+
