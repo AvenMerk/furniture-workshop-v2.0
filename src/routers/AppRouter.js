@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import AboutPage from '../containers/AboutUsPage';
+import AboutPage from '../containers/AboutPage';
 import NotFoundPage from '../containers/NotFoundPage';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
