@@ -17,7 +17,11 @@ class CategoryGet extends React.Component {
             {isEmpty
                 ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
                 : <div style={{opacity: isFetching ? 0.5 : 1}}>
-                    <Category category={category}/>
+                    <h2>Welcome to our furniture workshop!</h2>
+                    <div className="container">
+                        <p className="option__text">Furniture</p>
+                        <Category category={category}/>
+                    </div>
                 </div>
             }
         </React.Fragment>

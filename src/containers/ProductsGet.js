@@ -17,6 +17,7 @@ class ProductsGet extends React.Component {
             {isEmpty
                 ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
                 : <div style={{opacity: isFetching ? 0.5 : 1}}>
+                    <h4>Products:</h4>
                     <Products products={products}/>
                 </div>
             }

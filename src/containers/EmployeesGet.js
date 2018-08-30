@@ -17,6 +17,7 @@ class EmployeesGet extends React.Component {
             {isEmpty
                 ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
                 : <div style={{opacity: isFetching ? 0.5 : 1}}>
+                    <h3>Our masters</h3>
                     <Employees employees={employees}/>
                 </div>
             }
