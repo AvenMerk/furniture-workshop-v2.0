@@ -1,13 +1,19 @@
 import React from 'react';
 
+
+function handleButtonOnClick(id) {
+    window.location.href = '/products';
+    document.cookie = "id = " + id + ";path=/"
+}
+
 const Category = ({category}) => (
     <ul>
-        {category.map((categ, index) =>
+        {category.map((category, index) =>
             <li key={index}>
-                <button id={categ.id}
-                    onClick={() => {  window.location.href = '/products';
-                        document.cookie = "id = " + categ.id + ";path=/"}
-                    }>{`id: ${categ.id}, name: ${categ.name}`}</button>
+                <button id={category.id}
+                        onClick={() => handleButtonOnClick(category.id)}>
+                    {`id: ${category.id}, name: ${category.name}`}
+                </button>
             </li>
         )}
     </ul>
