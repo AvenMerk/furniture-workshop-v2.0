@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchCategory} from '../actions/categoryAction'
 import Category from '../components/Category'
 
-class CategoryGet extends React.Component {
+class HomePage extends React.Component {
 
     componentDidMount() {
         const {dispatch} = this.props;
@@ -45,4 +45,4 @@ const mapStateToProps = state => {
 };
 
 // props из редьюсера мапятся в компоненту в этом методе
-export default connect(mapStateToProps)(CategoryGet)
+export default connect(mapStateToProps)(HomePage)

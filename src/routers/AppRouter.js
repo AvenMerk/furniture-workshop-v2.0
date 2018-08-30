@@ -5,7 +5,7 @@ import NotFoundPage from '../containers/NotFoundPage';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProductsGet from '../containers/ProductsGet';
-import CategoryGet from '../containers/CategoryGet';
+import HomePage from '../containers/HomePage';
 import EmployeesGet from '../containers/EmployeesGet';
 
 const AppRouter = () => (
@@ -13,11 +13,10 @@ const AppRouter = () => (
         <React.Fragment>
             <Header/>
             <Switch>
-                <Route path="/" component={CategoryGet} exact={true}/>
+                <Route path="/" component={HomePage} exact={true}/>
                 <Route path="/employees" component={EmployeesGet}/>
                 <Route path="/about" component={AboutPage}/>
                 <Route path="/products" component={ProductsGet}/>
-                {/*<Route path="/categories" component={Categories} />*/}
                 <Route component={NotFoundPage}/>
             </Switch>
             <Footer/>
