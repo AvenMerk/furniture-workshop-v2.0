@@ -1,9 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../actions/productsAction'
-import Products from '../components/Products'
+import Product from '../components/Product'
 
 class ProductsPage extends React.Component {
+    state = {
+        id: Number(document.cookie.replace(/(?:(?:^|.*;\s*)id\s*\=\s*([^;]*).*$)|^.*$/, "$1"))
+    };
 
     componentDidMount() {
         const {dispatch} = this.props;
@@ -11,6 +14,7 @@ class ProductsPage extends React.Component {
     }
 
     render() {
+        const {id} = this.state;
         const {products, isFetching} = this.props;
         const isEmpty = products.length === 0;
         return <React.Fragment>
@@ -18,7 +22,11 @@ class ProductsPage extends React.Component {
                 ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
                 : <div style={{opacity: isFetching ? 0.5 : 1}}>
                     <h4>Products:</h4>
-                    <Products products={products}/>
+                    {products.filter(product => product.category_id === id).map((product, index) =>
+                        <div className={''} key={index}>
+                            <Product product={product}/>
+                        </div>
+                    )}
                 </div>
             }
         </React.Fragment>
