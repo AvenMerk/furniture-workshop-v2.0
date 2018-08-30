@@ -1,10 +1,13 @@
 import React from 'react';
 
 
-const Product = ({product}) => (
-    <button id={product.id}>
-        {` id: ${product.id} name: ${product.name}, price: ${product.price}`}
-    </button>
-);
+class Product extends React.Component {
+    render() {
+        const {id, category_id, creation_time, name, price} = this.props.product;
+        return <button id={id}>
+            {` id: ${id} name: ${name}, price: ${price}`}
+        </button>
+    }
+}
 
 export default Product;
