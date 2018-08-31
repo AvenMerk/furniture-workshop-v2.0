@@ -23,7 +23,7 @@ const productsReducer = (state = {isFetching: false, products: []}, action) => {
             return {
                 ...state,
                 isFetching: false,
-                products: action.products,
+                product: action.products,
                 lastUpdated: action.receivedAt
             };
         default:

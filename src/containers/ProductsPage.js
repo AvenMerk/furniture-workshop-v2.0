@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../actions/productsAction'
-import Product from '../components/Product'
+import Product from './Product'
 
 class ProductsPage extends React.Component {
     state = {
@@ -24,7 +24,7 @@ class ProductsPage extends React.Component {
                     <h4>Products:</h4>
                     {products.filter(product => product.category_id === id).map((product, index) =>
                         <div className={''} key={index}>
-                            <Product product={product}/>
+                            <Product value={product}/>
                         </div>
                     )}
                 </div>

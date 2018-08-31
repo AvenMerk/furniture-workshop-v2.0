@@ -19,7 +19,7 @@ export const receiveProducts = (json) => ({
 
 export const receiveProduct = (json) => ({
     type: RECEIVE_PRODUCT,
-    products: json,
+    product: json,
     receivedAt: Date.now()
 });
 
