@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchProduct} from "../actions/productsAction";
 
-
 class ProductPage extends React.Component {
     state = {
       productId: this.props.match.params.id
@@ -15,6 +14,11 @@ class ProductPage extends React.Component {
 
     render() {
         const {product, isFetching} = this.props;
+
+        function addToCartOnClick() {
+            document.cookie = "add_to_cart_product_id = " + product.id + ";path=/";
+        }
+
         return <React.Fragment>
             {product
                 ? <div style={{opacity: isFetching ? 0.5 : 1}}>
@@ -24,7 +28,7 @@ class ProductPage extends React.Component {
                     <li>{`price: ${product.price}`}</li>
                     <li>{`categoryId: ${product.category_id}`}</li>
                     </ul>
-                    <button>Add to cart</button>
+                    <button onClick={addToCartOnClick}>Add to cart</button>
                 </div>
                 : (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
             }
