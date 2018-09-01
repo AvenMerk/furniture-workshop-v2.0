@@ -5,7 +5,7 @@ import ProductPreview from '../components/ProductPreview'
 
 class ProductsListPage extends React.Component {
     state = {
-        id: Number(document.cookie.replace(/(?:(?:^|.*;\s*)id\s*\=\s*([^;]*).*$)|^.*$/, "$1"))
+        id: Number(document.cookie.replace(/(?:(?:^|.*;\s*)home_page_category_id\s*\=\s*([^;]*).*$)|^.*$/, "$1"))
     };
 
     componentDidMount() {

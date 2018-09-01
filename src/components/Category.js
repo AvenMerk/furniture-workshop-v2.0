@@ -3,7 +3,7 @@ import React from 'react';
 
 function handleButtonOnClick(id) {
     window.location.href = '/products';
-    document.cookie = "id = " + id + ";path=/"
+    document.cookie = "home_page_category_id = " + id + ";path=/"
 }
 
 const Category = ({category}) => (
