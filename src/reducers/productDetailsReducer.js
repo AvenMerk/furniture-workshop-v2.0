@@ -1,6 +1,6 @@
 import {RECEIVE_PRODUCT, REQUEST_PRODUCT} from "../actions/productsAction"
 
-const productDetailsReducer = (state = {isFetching: false, product: []}, action) => {
+const productDetailsReducer = (state = {isFetching: false, product: null}, action) => {
     switch (action.type) {
         case REQUEST_PRODUCT:
             return {
