@@ -6,7 +6,6 @@ const Footer = () => (
             <p>-----------------------------</p>
             <p>My profile, git etc</p>
         </div>
-
     </footer>
 );
 
