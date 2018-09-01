@@ -8,6 +8,7 @@ import ProductsListPage from '../containers/ProductsListPage';
 import ProductPage from '../containers/ProductPage';
 import HomePage from '../containers/HomePage';
 import EmployeesPage from '../containers/EmployeesPage';
+import Cart from '../components/Cart'
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -19,6 +20,7 @@ const AppRouter = () => (
                 <Route path="/about" component={AboutPage}/>
                 <Route path="/products" component={ProductsListPage}/>
                 <Route path="/product/:id" component={ProductPage}/>
+                <Route path="/cart" component={Cart}/>
                 <Route component={NotFoundPage}/>
             </Switch>
             <Footer/>

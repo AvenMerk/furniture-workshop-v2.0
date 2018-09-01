@@ -7,6 +7,7 @@ const Header = (props) => (
         <Link to="/" className="is-active option__text" exact={'true'}>Home</Link>
         <Link to="/employees" className="is-active option__text">Our craftsmen</Link>
         <Link to="/about" className="is-active option__text">About</Link>
+        <Link to="/cart" className="is-active option__text">Cart</Link>
     </header>
 );
 
