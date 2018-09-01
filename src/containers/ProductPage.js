@@ -24,6 +24,7 @@ class ProductPage extends React.Component {
                     <li>{`price: ${product.price}`}</li>
                     <li>{`categoryId: ${product.category_id}`}</li>
                     </ul>
+                    <button>Add to cart</button>
                 </div>
                 : (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
             }
