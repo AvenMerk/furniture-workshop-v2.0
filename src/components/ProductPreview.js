@@ -2,7 +2,7 @@ import React from "react";
 
 
 function redirectToProductPage(productId) {
-    window.location.href = `/products/${productId}`;
+    window.location.href = `/product/${productId}`;
 }
 
 const ProductPreview = ({id, name}) => (

@@ -4,7 +4,8 @@ import AboutPage from '../containers/AboutPage';
 import NotFoundPage from '../containers/NotFoundPage';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ProductsPage from '../containers/ProductsPage';
+import ProductsListPage from '../containers/ProductsListPage';
+import ProductPage from '../containers/ProductPage';
 import HomePage from '../containers/HomePage';
 import EmployeesPage from '../containers/EmployeesPage';
 
@@ -16,7 +17,8 @@ const AppRouter = () => (
                 <Route path="/" component={HomePage} exact={true}/>
                 <Route path="/employees" component={EmployeesPage}/>
                 <Route path="/about" component={AboutPage}/>
-                <Route path="/products" component={ProductsPage}/>
+                <Route path="/products" component={ProductsListPage}/>
+                <Route path="/product/:id" component={ProductPage}/>
                 <Route component={NotFoundPage}/>
             </Switch>
             <Footer/>

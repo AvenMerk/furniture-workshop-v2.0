@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchProducts} from '../actions/productsAction'
 import ProductPreview from '../components/ProductPreview'
 
-class ProductsPage extends React.Component {
+class ProductsListPage extends React.Component {
     state = {
         id: Number(document.cookie.replace(/(?:(?:^|.*;\s*)id\s*\=\s*([^;]*).*$)|^.*$/, "$1"))
     };
@@ -50,4 +50,4 @@ const mapStateToProps = state => {
 };
 
 // props из редьюсера мапятся в компоненту в этом методе
-export default connect(mapStateToProps)(ProductsPage)
+export default connect(mapStateToProps)(ProductsListPage)
