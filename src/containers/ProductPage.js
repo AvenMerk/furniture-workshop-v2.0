@@ -4,7 +4,8 @@ import {fetchProduct} from "../actions/productsAction";
 
 class ProductPage extends React.Component {
     state = {
-      productId: this.props.match.params.id
+        productId: this.props.match.params.id,
+        amount: 1
     };
 
     componentDidMount() {
@@ -12,23 +13,36 @@ class ProductPage extends React.Component {
         dispatch(fetchProduct(this.state.productId))
     }
 
+    handleAmountChange() {
+        return (event) => this.setState({amount: event.target.value});
+    }
+
+    addToCartOnClick = () => {
+        const myItem = {id: this.state.productId, amount: this.state.amount};
+        //check if the cart already exist in the cart
+        // localStorage.getItem(this.state.productId) ?
+            localStorage.setItem(this.state.productId, JSON.stringify(myItem))
+            // console.log('You already have this item');
+            // document.cookie = "add_to_cart_product_id=" + this.state.productId +
+            //     " number_of_products=" + this.state.amount + ";path=/";
+    };
+
     render() {
         const {product, isFetching} = this.props;
-
-        function addToCartOnClick() {
-            document.cookie = "add_to_cart_product_id = " + product.id + ";path=/";
-        }
+        const {amount} = this.state;
 
         return <React.Fragment>
             {product
                 ? <div style={{opacity: isFetching ? 0.5 : 1}}>
                     <h4>{product.name}</h4>
                     <ul>
-                    <li>{`id: ${product.id}`}</li>
-                    <li>{`price: ${product.price}`}</li>
-                    <li>{`categoryId: ${product.category_id}`}</li>
+                        <li>{`id: ${product.id}`}</li>
+                        <li>{`price: ${product.price}`}</li>
+                        <li>{`categoryId: ${product.category_id}`}</li>
                     </ul>
-                    <button onClick={addToCartOnClick}>Add to cart</button>
+                    <label htmlFor="numberOfProducts">Choose number of products:</label>
+                    <input type="number" value={amount} onChange={this.handleAmountChange()}/>
+                    <button onClick={this.addToCartOnClick}>Add to cart</button>
                 </div>
                 : (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
             }
