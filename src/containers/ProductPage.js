@@ -17,14 +17,15 @@ class ProductPage extends React.Component {
         return (event) => this.setState({quantity: event.target.value});
     }
 
+    getCartItemsList = () => {
+        const cartItemsList = JSON.parse(localStorage.getItem('cart'));
+        return cartItemsList === null ? [] : cartItemsList
+    };
+
     addToCartOnClick = () => {
-        const myItem = {productId: this.state.productId, quantity: this.state.quantity};
-        //check if the cart already exist in the cart
-        // localStorage.getItem(this.state.productId) ?
-            localStorage.setItem(this.state.productId, JSON.stringify(myItem))
-            // console.log('You already have this item');
-            // document.cookie = "add_to_cart_product_id=" + this.state.productId +
-            //     " number_of_products=" + this.state.quantity + ";path=/";
+        let cartItemsList = this.getCartItemsList();
+        cartItemsList.push({productId: Number(this.state.productId), quantity: Number(this.state.quantity)});
+        localStorage.setItem('cart', JSON.stringify(cartItemsList));
     };
 
     render() {
