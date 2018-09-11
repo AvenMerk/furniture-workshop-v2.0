@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import ProductsListPage from '../containers/ProductsListPage';
 import ProductPage from '../containers/ProductPage';
 import HomePage from '../containers/HomePage';
-import CartList from '../containers/CartList'
+import CartList from '../containers/Cart'
 
 const AppRouter = () => (
     <BrowserRouter>
