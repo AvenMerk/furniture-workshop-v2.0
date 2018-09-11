@@ -17,15 +17,23 @@ class ProductPage extends React.Component {
         return (event) => this.setState({quantity: event.target.value});
     }
 
-    getCartItemsList = () => {
-        const cartItemsList = JSON.parse(localStorage.getItem('cart'));
-        return cartItemsList === null ? [] : cartItemsList
+    getCartFromLocaleStorage = () => {
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        return cart === null ? {} : cart
     };
 
     addToCartOnClick = () => {
-        let cartItemsList = this.getCartItemsList();
-        cartItemsList.push({productId: Number(this.state.productId), quantity: Number(this.state.quantity)});
-        localStorage.setItem('cart', JSON.stringify(cartItemsList));
+        const productId = this.state.productId;
+        const quantity = Number(this.state.quantity);
+
+        let cart = this.getCartFromLocaleStorage();
+        if (cart[productId]) {
+            cart[productId] += quantity;
+        } else {
+            cart[productId] = quantity;
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
     };
 
     render() {
