@@ -1,10 +1,11 @@
 import React from 'react';
 
 
-const PurchaseItem = ({item}) => (
+const PurchaseItem = ({productId, quantity, onChange}) => (
     <li>
-        <p>productId: {item.productId}</p>
-        <p>quantity: {item.quantity}</p>
+        <p>productId: {productId}</p>
+        <p>quantity: {quantity}</p>
+        <input type="number" value={quantity} onChange={onChange}/>
     </li>
 );
 

@@ -2,24 +2,20 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
 
-function getCartItemsList() {
-    const cartItemsList = JSON.parse(localStorage.getItem('cart'));
-    return cartItemsList === null ? [] : cartItemsList
-}
 
 class Cart extends React.Component {
     state = {
-        items: getCartItemsList(),
+        items: JSON.parse(localStorage.getItem('cart'))
     };
 
     getCartForRender = () => {
-        const isCartPresent = this.state.items && this.state.items.length > 0;
-        if (isCartPresent) {
+        const cartItems = this.state.items;
+        if (cartItems) {
             return <ul>
-                {this.state.items.map((purchaseItem, index) =>
+                {Object.entries(cartItems).map(([productId, quantity], index) =>
                     <React.Fragment key={index}>
-                        <PurchaseItem item={purchaseItem}/>
-                        <button onClick={this.deleteItemFromCart}>Remove item</button>
+                        <PurchaseItem productId={productId} quantity={quantity} onChange={(event) => this.changeQuantity(productId, event)}/>
+                        <button onClick={() => this.deleteItemFromCart(productId)}>Remove item</button>
                     </React.Fragment>
                 )}
             </ul>
@@ -29,12 +25,22 @@ class Cart extends React.Component {
     };
 
     clearAllOnClick = () => {
-        this.setState({items: []});
+        this.setState({items: null});
         localStorage.clear();
     };
 
-    deleteItemFromCart = () => {
+    deleteItemFromCart = (productId) => {
+        let newItems = {...this.state.items};
+        delete newItems[productId];
+        this.setState({items: newItems});
+        localStorage.setItem('cart', JSON.stringify(newItems));
+    };
 
+    changeQuantity = (productId, event) => {
+        let newItems = {...this.state.items};
+        newItems[productId] = Number(event.target.value);
+        this.setState({items: newItems});
+        localStorage.setItem('cart', JSON.stringify(newItems));
     };
 
     render() {
