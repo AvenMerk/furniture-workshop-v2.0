@@ -7,7 +7,6 @@ import Footer from '../components/Footer';
 import ProductsListPage from '../containers/ProductsListPage';
 import ProductPage from '../containers/ProductPage';
 import HomePage from '../containers/HomePage';
-import EmployeesPage from '../containers/EmployeesPage';
 import CartList from '../containers/CartList'
 
 const AppRouter = () => (
@@ -16,7 +15,6 @@ const AppRouter = () => (
             <Header/>
             <Switch>
                 <Route path="/" component={HomePage} exact={true}/>
-                <Route path="/employees" component={EmployeesPage}/>
                 <Route path="/about" component={AboutPage}/>
                 <Route path="/products" component={ProductsListPage}/>
                 <Route path="/product/:id" component={ProductPage}/>
