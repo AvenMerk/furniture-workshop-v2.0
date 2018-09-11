@@ -10,15 +10,24 @@ function getCartItemsList() {
 class CartList extends React.Component {
     state = {
         cart: getCartItemsList(),
+
     };
 
     getCartForRender = () => this.state.cart && this.state.cart.length > 0
         ? <Cart cart={this.state.cart}/>
         : <h1>EMPTY</h1>;
 
-    render() {
+        clearAllOnClick = () => {
+            this.setState({
+                cart: []
+            });
+            localStorage.clear();
+        };
+
+        render() {
         return <React.Fragment>
             {this.getCartForRender()}
+            <button onClick={this.clearAllOnClick}>Clear All</button>
         </React.Fragment>
     }
 }
