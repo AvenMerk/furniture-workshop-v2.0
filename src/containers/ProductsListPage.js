@@ -22,9 +22,9 @@ class ProductsListPage extends React.Component {
                 ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
                 : <div style={{opacity: isFetching ? 0.5 : 1}}>
                     <h4>Products:</h4>
-                    {products.filter(product => product.category_id === id).map((product, index) =>
+                    {products.filter(product => product.categoryId === id).map((product, index) =>
                         <div className={''} key={index}>
-                            <ProductPreview id={product.id} name={product.name}/>
+                            <ProductPreview id={product.productId} name={product.name}/>
                         </div>
                     )}
                 </div>

@@ -45,9 +45,9 @@ class ProductPage extends React.Component {
                 ? <div style={{opacity: isFetching ? 0.5 : 1}}>
                     <h4>{product.name}</h4>
                     <ul>
-                        <li>{`id: ${product.id}`}</li>
+                        <li>{`id: ${product.productId}`}</li>
                         <li>{`price: ${product.price}`}</li>
-                        <li>{`categoryId: ${product.category_id}`}</li>
+                        <li>{`categoryName: ${product.category.name}`}</li>
                     </ul>
                     <label htmlFor="numberOfProducts">Choose number of products:</label>
                     <input type="number" value={quantity} onChange={this.handleProductAmountChange()}/>

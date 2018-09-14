@@ -9,9 +9,9 @@ const Category = ({category}) => (
     <ul>
         {category.map((category, index) =>
             <li key={index}>
-                <button id={category.id}
-                        onClick={() => handleButtonOnClick(category.id)}>
-                    {`id: ${category.id}, name: ${category.name}`}
+                <button id={category.categoryId}
+                        onClick={() => handleButtonOnClick(category.categoryId)}>
+                    {`id: ${category.categoryId}, name: ${category.name}`}
                 </button>
             </li>
         )}
