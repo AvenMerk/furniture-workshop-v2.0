@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
+import {createCart} from '../actions/cartAction'
 
 
 class Cart extends React.Component {
@@ -14,7 +15,8 @@ class Cart extends React.Component {
             return <ul>
                 {Object.entries(cartItems).map(([productId, quantity], index) =>
                     <React.Fragment key={index}>
-                        <PurchaseItem productId={productId} quantity={quantity} onChange={(event) => this.changeQuantity(productId, event)}/>
+                        <PurchaseItem productId={productId} quantity={quantity}
+                                      onChange={(event) => this.changeQuantity(productId, event)}/>
                         <button onClick={() => this.deleteItemFromCart(productId)}>Remove item</button>
                     </React.Fragment>
                 )}
@@ -43,10 +45,29 @@ class Cart extends React.Component {
         localStorage.setItem('cart', JSON.stringify(newItems));
     };
 
+    postCart = () => {
+        let purchases = Object.entries(this.state.items)
+            .map(([p, q]) => ({'productId': p, 'quantity':q}));
+        let cart = {
+            firstName: "test_jopa",
+            lastName: "test_customer_last_name_1",
+            middleName: "middle_name_1",
+            email: "test@test.ru",
+            phone: "111111",
+            shippingAddress: "shipping_address_1",
+            purchases,
+            price: "50000",
+            description: "description_1"
+        };
+
+        this.props.dispatch(createCart(JSON.stringify(cart)))
+    };
+
     render() {
         return <React.Fragment>
             {this.getCartForRender()}
             <button onClick={this.clearAllOnClick}>Clear All</button>
+            <button onClick={this.postCart}>Fetch cart</button>
         </React.Fragment>
     }
 }
