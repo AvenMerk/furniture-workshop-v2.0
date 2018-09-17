@@ -47,9 +47,9 @@ class Cart extends React.Component {
 
     postCart = () => {
         let purchases = Object.entries(this.state.items)
-            .map(([p, q]) => ({'productId': p, 'quantity':q}));
+            .map(([productId, quantity]) => ({productId, quantity}));
         let cart = {
-            firstName: "test_jopa",
+            firstName: "test_jopa2",
             lastName: "test_customer_last_name_1",
             middleName: "middle_name_1",
             email: "test@test.ru",
