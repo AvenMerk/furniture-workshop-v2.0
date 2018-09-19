@@ -7,3 +7,11 @@
   padding-left: 1em;
   letter-spacing: 1px;
 }
+
+.list__style {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 0.5em 0.5em 0;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1px;
+}
