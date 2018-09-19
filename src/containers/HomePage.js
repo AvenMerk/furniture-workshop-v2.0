@@ -19,7 +19,7 @@ class HomePage extends React.Component {
                 : <div  className="container main" style={{opacity: isFetching ? 0.5 : 1}}>
                     <h2>Welcome to our furniture workshop!</h2>
                     <div>
-                        <p className="option__text">Furniture</p>
+                        <p className="category__text">Furniture</p>
                         <Category category={category}/>
                     </div>
                 </div>

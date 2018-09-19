@@ -2,12 +2,19 @@ html {
   margin: 0; }
 
 body {
-  font-family: 'Pangolin', cursive;
+  font-family: 'Raleway', sans-serif;
   background-color: #ffffff;
   margin: 0; }
 
 button {
   cursor: pointer; }
+
+li {
+  list-style-type: none; }
+
+h2 {
+  padding: 1em 0 0.5em 0;
+  letter-spacing: 2px; }
 
 .header {
   color: #3a3a3a;
@@ -62,3 +69,8 @@ a:hover, a:active {
 
 .main {
   padding-left: 1em; }
+
+.category__text {
+  font-size: 1.2rem;
+  padding-left: 1em;
+  letter-spacing: 1px; }
