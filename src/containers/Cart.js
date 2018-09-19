@@ -17,7 +17,7 @@ class Cart extends React.Component {
                     <React.Fragment key={index}>
                         <PurchaseItem productId={productId} quantity={quantity}
                                       onChange={(event) => this.changeQuantity(productId, event)}/>
-                        <button onClick={() => this.deleteItemFromCart(productId)}>Remove item</button>
+                        <button className="standart__button" onClick={() => this.deleteItemFromCart(productId)}>Remove item</button>
                     </React.Fragment>
                 )}
             </ul>
@@ -66,8 +66,8 @@ class Cart extends React.Component {
     render() {
         return <div className="main">
             {this.getCartForRender()}
-            <button onClick={this.clearAllOnClick}>Clear All</button>
-            <button onClick={this.postCart}>Fetch cart</button>
+            <button className="standart__button" onClick={this.clearAllOnClick}>Clear All</button>
+            <button className="standart__button" onClick={this.postCart}>Fetch cart</button>
         </div>
     }
 }

@@ -8,10 +8,10 @@ function handleButtonOnClick(id) {
 const Category = ({category}) => (
     <ul>
         {category.map((category, index) =>
-            <li key={index}>
+            <li className="list__style" key={index}>
                 <p>{category.name}</p>
                 <button id={category.categoryId}
-                        className="category__button"
+                        className="standart__button"
                         onClick={() => handleButtonOnClick(category.categoryId)}>
                     Learn more
                 </button>
