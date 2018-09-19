@@ -64,11 +64,11 @@ class Cart extends React.Component {
     };
 
     render() {
-        return <React.Fragment>
+        return <div className="main">
             {this.getCartForRender()}
             <button onClick={this.clearAllOnClick}>Clear All</button>
             <button onClick={this.postCart}>Fetch cart</button>
-        </React.Fragment>
+        </div>
     }
 }
 

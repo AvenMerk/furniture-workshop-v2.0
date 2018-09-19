@@ -16,9 +16,9 @@ class HomePage extends React.Component {
         return <React.Fragment>
             {isEmpty
                 ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
-                : <div style={{opacity: isFetching ? 0.5 : 1}}>
+                : <div  className="container main" style={{opacity: isFetching ? 0.5 : 1}}>
                     <h2>Welcome to our furniture workshop!</h2>
-                    <div className="container">
+                    <div>
                         <p className="option__text">Furniture</p>
                         <Category category={category}/>
                     </div>
