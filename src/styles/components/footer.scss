@@ -1,0 +1,21 @@
+@import '../base/settings.scss';
+
+.footer {
+  color: #3a3a3a;
+  background-color: #efefef;
+  margin: 0;
+  font-family: 'Noto Serif JP', sans-serif;
+  border-top: 0.02em solid rgba(63, 25, 10, 0.79);
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.footer__text {
+  font-size: 1rem;
+  margin: 0;
+  padding-left: 1em;
+  vertical-align: bottom;
+  text-decoration: none;
+  display: inline-block;
+}
