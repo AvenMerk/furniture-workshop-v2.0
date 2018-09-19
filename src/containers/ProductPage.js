@@ -22,7 +22,9 @@ class ProductPage extends React.Component {
         return cart === null ? {} : cart
     };
 
-    addToCartOnClick = () => {
+    addToCartOnClick = (e) => {
+        e.preventDefault();
+
         const productId = this.state.productId;
         const quantity = Number(this.state.quantity);
 
@@ -42,16 +44,23 @@ class ProductPage extends React.Component {
 
         return <React.Fragment>
             {product
-                ? <div style={{opacity: isFetching ? 0.5 : 1}}>
-                    <h4>{product.name}</h4>
+                ? <div className="main" style={{opacity: isFetching ? 0.5 : 1}}>
+                    <h3>{product.name}</h3>
                     <ul>
-                        <li>{`id: ${product.productId}`}</li>
-                        <li>{`price: ${product.price}`}</li>
-                        <li>{`categoryName: ${product.category.name}`}</li>
+                        <li className="list__style">{`id: ${product.productId}`}</li>
+                        <li className="list__style">{`price: ${product.price}`}</li>
+                        <li className="list__style">{`categoryName: ${product.category.name}`}</li>
                     </ul>
-                    <label htmlFor="numberOfProducts">Choose number of products:</label>
-                    <input type="number" value={quantity} onChange={this.handleProductAmountChange()}/>
-                    <button onClick={this.addToCartOnClick}>Add to cart</button>
+                    <div className="list__style">
+                        <p>Choose number of products:</p>
+                        <form
+                            onSubmit={this.addToCartOnClick}
+                            className="add-option"
+                        >
+                            <input  type="number" value={quantity} onChange={this.handleProductAmountChange()}/>
+                            <button className="standart__button">Add to cart</button>
+                        </form>
+                    </div>
                 </div>
                 : (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
             }

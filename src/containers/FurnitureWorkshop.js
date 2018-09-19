@@ -3,7 +3,7 @@ import AppRouter from '../routers/AppRouter';
 
 
 const FurnitureWorkshop = () => (
-    <div>
+    <div className="container">
         <AppRouter />
     </div>
 );

@@ -6,9 +6,15 @@ function redirectToProductPage(productId) {
 }
 
 const ProductPreview = ({id, name}) => (
-    <button id={id} onClick={() => redirectToProductPage(id)}>
-        {`name: ${name}`}
-    </button>
+    <ul>
+        <li className="list__style">
+            <p>{name}</p>
+            <button className="standart__button" id={id} onClick={() => redirectToProductPage(id)}>
+                Learn more
+            </button>
+        </li>
+    </ul>
+
 );
 
 export default ProductPreview;

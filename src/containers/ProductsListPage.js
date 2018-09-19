@@ -20,8 +20,8 @@ class ProductsListPage extends React.Component {
         return <React.Fragment>
             {isEmpty
                 ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
-                : <div style={{opacity: isFetching ? 0.5 : 1}}>
-                    <h4>Products:</h4>
+                : <div className="main" style={{opacity: isFetching ? 0.5 : 1}}>
+                    <h2>Products:</h2>
                     {products.filter(product => product.categoryId === id).map((product, index) =>
                         <div className={''} key={index}>
                             <ProductPreview id={product.productId} name={product.name}/>
