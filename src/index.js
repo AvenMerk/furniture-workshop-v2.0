@@ -6,6 +6,7 @@ import thunk from 'redux-thunk'
 import {createLogger} from 'redux-logger'
 import reducer from './reducers/combineReducers'
 import FurnitureWorkshop from './containers/FurnitureWorkshop'
+import './styles/styles.css'
 
 
 const middleware = [thunk];
