@@ -65,9 +65,12 @@ class Cart extends React.Component {
 
     render() {
         return <div className="main">
+            <h2>Your Cart</h2>
             {this.getCartForRender()}
-            <button className="standart__button" onClick={this.clearAllOnClick}>Clear All</button>
-            <button className="standart__button" onClick={this.postCart}>Fetch cart</button>
+            <div className="list__style space">
+                <button className="standart__button" onClick={this.clearAllOnClick}>Clear All</button>
+                <button className="standart__button" onClick={this.postCart}>Fetch cart</button>
+            </div>
         </div>
     }
 }
