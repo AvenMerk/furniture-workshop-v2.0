@@ -31,12 +31,23 @@ input[type=number] {
 .standart__button:hover {
   background-color: #2d1609; }
 
+#logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 10px;
+  padding-left: 0.7em;
+  margin: 0; }
+
 .header {
+  display: flex;
   color: #3a3a3a;
   background-color: #efefef;
   margin: 0;
   font-family: 'Noto Serif JP', sans-serif;
-  border-bottom: 0.1em solid #3f190a; }
+  border-bottom: 0.1em solid #3f190a;
+  align-items: center;
+  flex-direction: row; }
 
 .header__text {
   font-weight: 600;
@@ -46,7 +57,7 @@ input[type=number] {
 /* unvisited link */
 a:link, a:visited {
   color: #2d1609;
-  padding: 1.1em;
+  padding: 1.2em;
   text-align: center;
   text-decoration: none;
   display: inline-block; }
@@ -55,7 +66,7 @@ a:link, a:visited {
 a:hover, a:active {
   background-color: #2d1609;
   color: #fff;
-  padding: 1.1em;
+  padding: 1.2em;
   text-align: center;
   text-decoration: none;
   display: inline-block; }
