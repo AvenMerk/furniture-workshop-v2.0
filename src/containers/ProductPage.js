@@ -57,7 +57,7 @@ class ProductPage extends React.Component {
                             onSubmit={this.addToCartOnClick}
                             className="add-option"
                         >
-                            <input  type="number" value={quantity} onChange={this.handleProductAmountChange()}/>
+                            <input  type="number" min="0" max="100" step="1" value={quantity} onChange={this.handleProductAmountChange()}/>
                             <button className="standart__button">Add to cart</button>
                         </form>
                     </div>
