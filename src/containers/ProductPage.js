@@ -47,9 +47,9 @@ class ProductPage extends React.Component {
                 ? <div className="main" style={{opacity: isFetching ? 0.5 : 1}}>
                     <h3>{product.name}</h3>
                     <ul>
-                        <li className="list__style">{`id: ${product.productId}`}</li>
-                        <li className="list__style">{`price: ${product.price}`}</li>
                         <li className="list__style">{`categoryName: ${product.category.name}`}</li>
+                        <li className="list__style">{`description: ${product.description}`}</li>
+                        <li className="list__style">{`price: ${product.price}`}</li>
                     </ul>
                     <div className="list__style">
                         <p>Choose number of products:</p>
