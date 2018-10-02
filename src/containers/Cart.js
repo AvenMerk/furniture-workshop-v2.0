@@ -83,11 +83,8 @@ class Cart extends React.Component {
                 {this.getCartForRender()}
                 <tfoot>
                     <tr>
-                        <th colSpan="4">Total Price</th>
-                    </tr>
-                    <tr>
-                        <td colSpan="3">Total:</td>
-                        <td>{totalPrice.toFixed(2)}</td>
+                        <th colSpan="3">Total Price:</th>
+                        <th>{totalPrice.toFixed(2)}</th>
                     </tr>
                 </tfoot>
             </table>
