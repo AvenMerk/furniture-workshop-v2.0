@@ -11,11 +11,15 @@ class ProductPage extends React.Component {
     componentDidMount() {
         const {dispatch} = this.props;
         dispatch(fetchProduct(this.state.productId))
-    }
+    };
+
+    // setProductName() {
+    //     return => this.setState({name: event.ta})
+    // }
 
     handleProductAmountChange() {
         return (event) => this.setState({quantity: event.target.value});
-    }
+    };
 
     getCartFromLocaleStorage = () => {
         const cart = JSON.parse(localStorage.getItem('cart'));
@@ -27,12 +31,17 @@ class ProductPage extends React.Component {
 
         const productId = this.state.productId;
         const quantity = Number(this.state.quantity);
+        const {name, price} = this.props.product;
 
         let cart = this.getCartFromLocaleStorage();
         if (cart[productId]) {
-            cart[productId] += quantity;
+            cart[productId].quantity += quantity;
         } else {
-            cart[productId] = quantity;
+            cart[productId] = {
+                "quantity": quantity,
+                "name": name,
+                "price": price
+            };
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));

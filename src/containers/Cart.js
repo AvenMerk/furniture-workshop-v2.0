@@ -12,15 +12,20 @@ class Cart extends React.Component {
     getCartForRender = () => {
         const cartItems = this.state.items;
         if (cartItems) {
-            return <ul>
-                {Object.entries(cartItems).map(([productId, quantity], index) =>
-                    <React.Fragment key={index}>
-                        <PurchaseItem productId={productId} quantity={quantity}
-                                      onChange={(event) => this.changeQuantity(productId, event)}/>
-                        <button className="standart__button" onClick={() => this.deleteItemFromCart(productId)}>Remove item</button>
-                    </React.Fragment>
+            return <React.Fragment>
+                {Object.entries(cartItems).map(([productId, product], index) =>
+                    <tbody key={index}>
+                        <PurchaseItem productId={productId}
+                                      quantity={product.quantity}
+                                      price={(product.price*product.quantity).toFixed(2)}
+                                      name={product.name}
+                                      onChange={(event) => this.changeQuantity(productId, event)}
+                                      onClick={() => this.deleteItemFromCart(productId)}
+
+                        />
+                    </tbody>
                 )}
-            </ul>
+            </React.Fragment>
         } else {
             return <h1>EMPTY</h1>
         }
@@ -40,7 +45,7 @@ class Cart extends React.Component {
 
     changeQuantity = (productId, event) => {
         let newItems = {...this.state.items};
-        newItems[productId] = Number(event.target.value);
+        newItems[productId].quantity = Number(event.target.value);
         this.setState({items: newItems});
         localStorage.setItem('cart', JSON.stringify(newItems));
     };
@@ -64,12 +69,39 @@ class Cart extends React.Component {
     };
 
     render() {
-        return <div className="main">
+        let totalPrice =  Object.entries(this.state.items).map(([productId, product]) => (product.quantity * product.price)).reduce((acc, value) => acc + value, 0);
+        return <div className="page-container">
             <h2>Your Cart</h2>
-            {this.getCartForRender()}
-            <div className="list__style space">
-                <button className="standart__button" onClick={this.clearAllOnClick}>Clear All</button>
-                <button className="standart__button" onClick={this.postCart}>Fetch cart</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th colspan="2">Amount</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                {this.getCartForRender()}
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Total Price</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Total:</td>
+                        <td>{totalPrice.toFixed(2)}</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div className="list__style">
+                <button
+                    className="standart__button"
+                    onClick={this.clearAllOnClick}>
+                    Clear All
+                </button>
+                <button
+                    className="standart__button"
+                    onClick={this.postCart}>
+                    Fetch cart
+                </button>
             </div>
         </div>
     }
