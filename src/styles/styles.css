@@ -31,6 +31,14 @@ input[type=number] {
 .standart__button:hover {
   background-color: #2d1609; }
 
+.style-none {
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.8px; }
+
 #logo {
   font-family: 'Great Vibes', cursive;
   font-size: 2.5rem;
@@ -93,6 +101,11 @@ a:hover, a:active {
   max-width: 100%;
   margin: 0; }
 
+.page-container {
+  width: 70%;
+  padding-left: 15%;
+  padding-right: 15%; }
+
 .main {
   padding-left: 1em; }
 
@@ -119,3 +132,19 @@ a:hover, a:active {
 .add-option__cart {
   width: 5em;
   height: 2em; }
+
+table {
+  width: 90%;
+  padding-left: 5%; }
+
+td {
+  background: #eee;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.8px; }
+
+th, td {
+  padding: 0.25rem;
+  text-align: left;
+  border: 1px solid #ccc;
+  letter-spacing: 0.8px; }
