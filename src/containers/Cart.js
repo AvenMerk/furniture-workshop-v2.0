@@ -91,14 +91,14 @@ class Cart extends React.Component {
                     </tr>
                 </tfoot>
             </table>
-            <div className="list__style">
+            <div className="cart__style">
+                {/*<button*/}
+                    {/*className="standart__button"*/}
+                    {/*onClick={this.clearAllOnClick}>*/}
+                    {/*Clear All*/}
+                {/*</button>*/}
                 <button
-                    className="standart__button"
-                    onClick={this.clearAllOnClick}>
-                    Clear All
-                </button>
-                <button
-                    className="standart__button"
+                    className="standart__button add-cart-button"
                     onClick={this.postCart}>
                     Fetch cart
                 </button>

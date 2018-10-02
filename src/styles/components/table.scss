@@ -1,6 +1,5 @@
 table {
-  width: 90%;
-  padding-left: 5%;
+  width: 100%;
 }
 
 td {
@@ -17,4 +16,8 @@ th, td {
   letter-spacing: 0.8px;
 }
 
+tfoot {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
 

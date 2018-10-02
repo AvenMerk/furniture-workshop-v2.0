@@ -39,6 +39,9 @@ input[type=number] {
   font-size: 0.9rem;
   letter-spacing: 0.8px; }
 
+.add-cart-button {
+  margin-right: 0; }
+
 #logo {
   font-family: 'Great Vibes', cursive;
   font-size: 2.5rem;
@@ -125,6 +128,11 @@ a:hover, a:active {
 .space {
   padding: 1em 1em 1em 0; }
 
+.cart__style {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2em; }
+
 .add-option {
   display: flex;
   flex-direction: row; }
@@ -134,8 +142,7 @@ a:hover, a:active {
   height: 2em; }
 
 table {
-  width: 90%;
-  padding-left: 5%; }
+  width: 100%; }
 
 td {
   background: #eee;
@@ -148,3 +155,7 @@ th, td {
   text-align: left;
   border: 1px solid #ccc;
   letter-spacing: 0.8px; }
+
+tfoot {
+  padding-top: 2em;
+  padding-bottom: 2em; }
