@@ -53,7 +53,7 @@ class ProductPage extends React.Component {
 
         return <React.Fragment>
             {product
-                ? <div className="main" style={{opacity: isFetching ? 0.5 : 1}}>
+                ? <div className="page-container" style={{opacity: isFetching ? 0.5 : 1}}>
                     <h3>{product.name}</h3>
                     <ul>
                         <li className="list__style">{`categoryName: ${product.category.name}`}</li>
