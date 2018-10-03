@@ -2,7 +2,7 @@ import React from 'react';
 
 const PurchaseItem = ({productId, quantity, name, price, onChange, onClick}) => (
         <tr>
-            <td>{name}</td>
+            <td className="table-left-align">{name}</td>
             <td><input className="add-option__cart"
                        type="number"
                        min="0"

@@ -107,6 +107,12 @@ a:hover, a:active {
   max-width: 100%;
   margin: 0; }
 
+@media screen and (min-width: 992px) {
+  .page-container {
+    width: 60%;
+    padding-left: 20%;
+    padding-right: 20%; } }
+
 .page-container {
   width: 70%;
   padding-left: 15%;

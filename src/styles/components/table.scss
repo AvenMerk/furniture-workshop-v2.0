@@ -7,18 +7,24 @@ td {
   font-family: 'Raleway', sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.8px;
+  text-align: center;
 }
 
 th, td {
   padding: 0.25rem;
-  text-align: left;
+
   border: 1px solid #ccc;
   letter-spacing: 0.8px;
 }
 
-tfoot th {
+tfoot th, thead th {
   padding-top: 2em;
   padding-bottom: 1em;
   border: none;
+}
+
+.table-left-align{
+  text-align: left;
+  padding-left: 1.5em;
 }
 
