@@ -3,10 +3,17 @@ import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
 import {createCart} from '../actions/cartAction'
 
-
 class Cart extends React.Component {
     state = {
-        items: JSON.parse(localStorage.getItem('cart'))
+        items: JSON.parse(localStorage.getItem('cart')),
+        firstName: "First Name",
+        lastName: "Last Name",
+        middleName: "Middle Name",
+        email: "test@test.ru",
+        phone: "111111",
+        shippingAddress: "Your shipping address",
+        price: 0,
+        description: "Add your description"
     };
 
     getCartForRender = () => {
@@ -50,22 +57,80 @@ class Cart extends React.Component {
         localStorage.setItem('cart', JSON.stringify(newItems));
     };
 
+    setTotalPrice = (totalPrice) => {
+        this.setState({price: totalPrice.toFixed(2)});
+    };
+
+    enterFirstName = (e) => {
+        e.preventDefault();
+        let newFirstName = e.target.value;
+        this.setState({firstName: newFirstName});
+    };
+
+    enterLastName = (e) => {
+        e.preventDefault();
+        let newLastName = e.target.value;
+        this.setState({lastName: newLastName});
+    };
+
+    enterMiddleName = (e) => {
+        e.preventDefault();
+        let newMiddleName = e.target.value;
+        this.setState({middleName: newMiddleName});
+    };
+
+    enterEmail = (e) => {
+        e.preventDefault();
+        let newEmail = e.target.value;
+        this.setState({email: newEmail});
+    };
+
+    enterPhone = (e) => {
+        e.preventDefault();
+        let newPhone = e.target.value;
+        this.setState({phone: newPhone});
+    };
+
+    enterAddress = (e) => {
+        e.preventDefault();
+        let newShippingAddress = e.target.value;
+        this.setState({shippingAddress: newShippingAddress});
+    };
+
+    enterDescription = (e) => {
+        e.preventDefault();
+        let newDescription = e.target.value;
+        this.setState({description: newDescription});
+    };
+
+    showSmth = (e) => {
+        e.preventDefault();
+        console.log(this.state.firstName,
+            this.state.lastName,
+            this.state.middleName,
+            this.state.phone,
+            this.state.shippingAddress,
+            this.state.email,
+            this.state.description);
+    };
+
     postCart = () => {
+        let totalPrice =  Object.entries(this.state.items).map(([productId, product]) => (product.quantity * product.price)).reduce((acc, value) => acc + value, 0);
         let purchases = Object.entries(this.state.items)
-            .map(([productId, quantity]) => ({productId, quantity}));
+            .map(([productId, {quantity}]) => ({productId, quantity}));
         let cart = {
-            firstName: "test_jopa2",
-            lastName: "test_customer_last_name_1",
-            middleName: "middle_name_1",
-            email: "test@test.ru",
-            phone: "111111",
-            shippingAddress: "shipping_address_1",
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            middleName: this.state.middleName,
+            email: this.state.email,
+            phone: this.state.phone,
+            shippingAddress: this.state.shippingAddress,
             purchases,
-            price: "50000",
-            description: "description_1"
+            price: totalPrice,
+            description: this.state.description
         };
 
-        this.props.dispatch(createCart(JSON.stringify(cart)))
+        this.props.dispatch(createCart(JSON.stringify(cart)));
     };
 
     render() {
@@ -99,6 +164,44 @@ class Cart extends React.Component {
                     onClick={this.postCart}>
                     Fetch cart
                 </button>
+            </div>
+            <div>
+                    <p>First name: </p>
+                    <input type="text"
+                           defaultValue={this.state.firstName}
+                           onChange={this.enterFirstName}
+                           required/>
+                    <p>Last name: </p>
+                    <input type="text"
+                           defaultValue={this.state.lastName}
+                           onChange={this.enterLastName}
+                           required/>
+                    <p>Middle name: </p>
+                    <input type="text"
+                           defaultValue={this.state.middleName}
+                           onChange={this.enterMiddleName}
+                           required/>
+                    <p>Email: </p>
+                    <input type="email"
+                           defaultValue={this.state.email}
+                           onChange={this.enterEmail}
+                           required/>
+                    <p>Phone number: </p>
+                    <input type="tel"
+                           defaultValue={this.state.phone}
+                           onChange={this.enterPhone}
+                           required/>
+                    <p>Shipping address: </p>
+                    <input defaultValue={this.state.shippingAddress}
+                           onChange={this.enterAddress}
+                           required/>
+                    <p>Description: </p>
+                    <textarea rows="4"
+                              cols="50"
+                              defaultValue={this.state.description}
+                              onChange={this.enterDescription}
+                    />
+                <button onClick={this.showSmth}>click</button>
             </div>
         </div>
     }
