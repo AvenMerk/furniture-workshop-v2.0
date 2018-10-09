@@ -18,15 +18,13 @@ class Cart extends React.Component {
         if (this.state.items) {
             return <React.Fragment>
                 {Object.entries(this.state.items).map(([productId, product], index) =>
-                    <tbody key={index}>
-                    <PurchaseItem productId={productId}
+                    <PurchaseItem productId={productId} key={index}
                                   quantity={product.quantity}
                                   price={(product.price * product.quantity).toFixed(2)}
                                   name={product.name}
                                   onChange={(event) => this.changeQuantity(productId, event)}
                                   onClick={() => this.deleteItemFromCart(productId)}
                     />
-                    </tbody>
                 )}
             </React.Fragment>
         }
@@ -90,25 +88,13 @@ class Cart extends React.Component {
         const purchases = Object.entries(this.state.items)
             .map(([productId, {quantity}]) => ({productId, quantity}));
 
-        const cart = {
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            middleName: this.state.middleName,
-            email: this.state.email,
-            phone: this.state.phone,
-            shippingAddress: this.state.shippingAddress,
-            purchases,
-            price: totalPrice,
-            description: this.state.description
-        };
-
+        const {firstName, lastName, middleName, email, phone, shippingAddress, description} = this.state;
+        const cart = {firstName, lastName, middleName, email, phone, shippingAddress, purchases, price: totalPrice, description};
         this.props.dispatch(createCart(JSON.stringify(cart)));
         this.closePopup();
     };
 
     render() {
-        let totalPrice = this.getTotalPrice();
-
         return <div className='page-container'>
             <h2>Your Cart</h2>
 
@@ -121,12 +107,13 @@ class Cart extends React.Component {
                 </tr>
                 </thead>
 
+                <tbody>
                 {this.getCartForRender()}
-
+                </tbody>
                 <tfoot>
                 <tr>
                     <th colSpan='3' className='table-left-align'>Total Price:</th>
-                    <th>{totalPrice}</th>
+                    <th>{this.getTotalPrice()}</th>
                 </tr>
                 </tfoot>
             </table>
@@ -139,14 +126,12 @@ class Cart extends React.Component {
             </div>
 
             {this.popupData()}
-
         </div>
     }
 
     popupData = () => {
         return <React.Fragment>
             <div id='overlay'/>
-
             <div className='popup'>
                 <div className='popuptext' id='myPopup'>
                     <p>We need more information about you.</p>
