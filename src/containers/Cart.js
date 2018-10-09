@@ -114,6 +114,13 @@ class Cart extends React.Component {
             this.state.description);
     };
 
+    popupFunction = (e) => {
+        e.preventDefault();
+        let popup = document.getElementById("myPopup");
+        console.log(popup);
+        popup.classList.toggle("show");
+    };
+
     postCart = () => {
         let totalPrice =  Object.entries(this.state.items).map(([productId, product]) => (product.quantity * product.price)).reduce((acc, value) => acc + value, 0);
         let purchases = Object.entries(this.state.items)
@@ -161,38 +168,39 @@ class Cart extends React.Component {
                 {/*</button>*/}
                 <button
                     className="standart__button add-cart-button"
-                    onClick={this.postCart}>
-                    Fetch cart
+                    onClick={this.popupFunction}>
+                    Buy
                 </button>
             </div>
-            <div>
+            <div className="popup">
+                <div className="popuptext" id="myPopup">
                     <p>First name: </p>
                     <input type="text"
-                           defaultValue={this.state.firstName}
+                           placeholder={this.state.firstName}
                            onChange={this.enterFirstName}
                            required/>
                     <p>Last name: </p>
                     <input type="text"
-                           defaultValue={this.state.lastName}
+                           placeholder={this.state.lastName}
                            onChange={this.enterLastName}
                            required/>
                     <p>Middle name: </p>
                     <input type="text"
-                           defaultValue={this.state.middleName}
+                           placeholder={this.state.middleName}
                            onChange={this.enterMiddleName}
                            required/>
                     <p>Email: </p>
                     <input type="email"
-                           defaultValue={this.state.email}
+                           placeholder={this.state.email}
                            onChange={this.enterEmail}
                            required/>
                     <p>Phone number: </p>
                     <input type="tel"
-                           defaultValue={this.state.phone}
+                           placeholder={this.state.phone}
                            onChange={this.enterPhone}
                            required/>
                     <p>Shipping address: </p>
-                    <input defaultValue={this.state.shippingAddress}
+                    <input placeholder={this.state.shippingAddress}
                            onChange={this.enterAddress}
                            required/>
                     <p>Description: </p>
@@ -201,7 +209,8 @@ class Cart extends React.Component {
                               defaultValue={this.state.description}
                               onChange={this.enterDescription}
                     />
-                <button onClick={this.showSmth}>click</button>
+                    <button onClick={this.postCart}>click</button>
+                </div>
             </div>
         </div>
     }
