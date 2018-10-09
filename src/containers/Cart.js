@@ -6,14 +6,13 @@ import {createCart} from '../actions/cartAction'
 class Cart extends React.Component {
     state = {
         items: JSON.parse(localStorage.getItem('cart')),
-        firstName: "First Name",
-        lastName: "Last Name",
-        middleName: "Middle Name",
-        email: "test@test.ru",
-        phone: "111111",
-        shippingAddress: "Your shipping address",
-        price: 0,
-        description: "Add your description"
+        firstName: 'First Name',
+        lastName: 'Last Name',
+        middleName: 'Middle Name',
+        email: 'test@test.ru',
+        phone: '111111',
+        shippingAddress: 'Your shipping address',
+        description: 'Add your description'
     };
 
     getCartForRender = () => {
@@ -22,25 +21,19 @@ class Cart extends React.Component {
             return <React.Fragment>
                 {Object.entries(cartItems).map(([productId, product], index) =>
                     <tbody key={index}>
-                        <PurchaseItem productId={productId}
-                                      quantity={product.quantity}
-                                      price={(product.price*product.quantity).toFixed(2)}
-                                      name={product.name}
-                                      onChange={(event) => this.changeQuantity(productId, event)}
-                                      onClick={() => this.deleteItemFromCart(productId)}
-
-                        />
+                    <PurchaseItem productId={productId}
+                                  quantity={product.quantity}
+                                  price={(product.price * product.quantity).toFixed(2)}
+                                  name={product.name}
+                                  onChange={(event) => this.changeQuantity(productId, event)}
+                                  onClick={() => this.deleteItemFromCart(productId)}
+                    />
                     </tbody>
                 )}
             </React.Fragment>
-        } else {
-            return <h1>EMPTY</h1>
         }
-    };
 
-    clearAllOnClick = () => {
-        this.setState({items: null});
-        localStorage.clear();
+        return <h1>EMPTY</h1>
     };
 
     deleteItemFromCart = (productId) => {
@@ -57,75 +50,44 @@ class Cart extends React.Component {
         localStorage.setItem('cart', JSON.stringify(newItems));
     };
 
-    setTotalPrice = (totalPrice) => {
-        this.setState({price: totalPrice.toFixed(2)});
+    enterFirstName = (event) => this.setState({firstName: event.target.value});
+
+    enterLastName = (event) => this.setState({lastName: event.target.value});
+
+    enterMiddleName = (event) => this.setState({middleName: event.target.value});
+
+    enterEmail = (event) => this.setState({email: event.target.value});
+
+    enterPhone = (event) => this.setState({phone: event.target.value});
+
+    enterAddress = (event) => this.setState({shippingAddress: event.target.value});
+
+    enterDescription = (event) => this.setState({description: event.target.value});
+
+    showPopup = () => {
+        const popup = document.getElementById('myPopup');
+        const overlay = document.getElementById('overlay');
+        popup.classList.toggle('show');
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
     };
 
-    enterFirstName = (e) => {
-        e.preventDefault();
-        let newFirstName = e.target.value;
-        this.setState({firstName: newFirstName});
-    };
-
-    enterLastName = (e) => {
-        e.preventDefault();
-        let newLastName = e.target.value;
-        this.setState({lastName: newLastName});
-    };
-
-    enterMiddleName = (e) => {
-        e.preventDefault();
-        let newMiddleName = e.target.value;
-        this.setState({middleName: newMiddleName});
-    };
-
-    enterEmail = (e) => {
-        e.preventDefault();
-        let newEmail = e.target.value;
-        this.setState({email: newEmail});
-    };
-
-    enterPhone = (e) => {
-        e.preventDefault();
-        let newPhone = e.target.value;
-        this.setState({phone: newPhone});
-    };
-
-    enterAddress = (e) => {
-        e.preventDefault();
-        let newShippingAddress = e.target.value;
-        this.setState({shippingAddress: newShippingAddress});
-    };
-
-    enterDescription = (e) => {
-        e.preventDefault();
-        let newDescription = e.target.value;
-        this.setState({description: newDescription});
-    };
-
-    showSmth = (e) => {
-        e.preventDefault();
-        console.log(this.state.firstName,
-            this.state.lastName,
-            this.state.middleName,
-            this.state.phone,
-            this.state.shippingAddress,
-            this.state.email,
-            this.state.description);
-    };
-
-    popupFunction = (e) => {
-        e.preventDefault();
-        let popup = document.getElementById("myPopup");
-        console.log(popup);
-        popup.classList.toggle("show");
+    closePopup = () => {
+        let popup = document.getElementById('myPopup');
+        let overlay = document.getElementById('overlay');
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
     };
 
     postCart = () => {
-        let totalPrice =  Object.entries(this.state.items).map(([productId, product]) => (product.quantity * product.price)).reduce((acc, value) => acc + value, 0);
-        let purchases = Object.entries(this.state.items)
+        const totalPrice = Object.entries(this.state.items)
+            .map(([productId, product]) => (product.quantity * product.price))
+            .reduce((acc, value) => acc + value, 0);
+
+        const purchases = Object.entries(this.state.items)
             .map(([productId, {quantity}]) => ({productId, quantity}));
-        let cart = {
+
+        const cart = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             middleName: this.state.middleName,
@@ -138,81 +100,103 @@ class Cart extends React.Component {
         };
 
         this.props.dispatch(createCart(JSON.stringify(cart)));
+        this.closePopup();
     };
 
     render() {
-        let totalPrice =  Object.entries(this.state.items).map(([productId, product]) => (product.quantity * product.price)).reduce((acc, value) => acc + value, 0);
-        return <div className="page-container">
+        let totalPrice = Object.entries(this.state.items)
+            .map(([productId, product]) => (product.quantity * product.price))
+            .reduce((acc, value) => acc + value, 0);
+
+        return <div className='page-container'>
             <h2>Your Cart</h2>
+
             <table>
                 <thead>
-                    <tr>
-                        <th className="table-left-align">Product</th>
-                        <th colSpan="2">Amount</th>
-                        <th>Price</th>
-                    </tr>
+                <tr>
+                    <th className='table-left-align'>Product</th>
+                    <th colSpan='2'>Amount</th>
+                    <th>Price</th>
+                </tr>
                 </thead>
+
                 {this.getCartForRender()}
+
                 <tfoot>
-                    <tr>
-                        <th colSpan="3"  className="table-left-align">Total Price:</th>
-                        <th>{totalPrice.toFixed(2)}</th>
-                    </tr>
+                <tr>
+                    <th colSpan='3' className='table-left-align'>Total Price:</th>
+                    <th>{totalPrice.toFixed(2)}</th>
+                </tr>
                 </tfoot>
             </table>
-            <div className="cart__style">
-                {/*<button*/}
-                    {/*className="standart__button"*/}
-                    {/*onClick={this.clearAllOnClick}>*/}
-                    {/*Clear All*/}
-                {/*</button>*/}
-                <button
-                    className="standart__button add-cart-button"
-                    onClick={this.popupFunction}>
+
+            <div className='cart__style'>
+                <button className='standart__button add-cart-button'
+                        onClick={this.showPopup}>
                     Buy
                 </button>
             </div>
-            <div className="popup">
-                <div className="popuptext" id="myPopup">
+
+            {this.popupData()}
+
+        </div>
+    }
+
+    popupData = () => {
+        return <React.Fragment>
+            <div id='overlay'/>
+
+            <div className='popup'>
+                <div className='popuptext' id='myPopup'>
+                    <p>We need more information about you.</p>
+                    <p>Please, input your:</p>
+
                     <p>First name: </p>
-                    <input type="text"
+                    <input type='text'
                            placeholder={this.state.firstName}
                            onChange={this.enterFirstName}
                            required/>
+
                     <p>Last name: </p>
-                    <input type="text"
+                    <input type='text'
                            placeholder={this.state.lastName}
                            onChange={this.enterLastName}
                            required/>
+
                     <p>Middle name: </p>
-                    <input type="text"
+                    <input type='text'
                            placeholder={this.state.middleName}
                            onChange={this.enterMiddleName}
                            required/>
+
                     <p>Email: </p>
-                    <input type="email"
+                    <input type='email'
                            placeholder={this.state.email}
                            onChange={this.enterEmail}
                            required/>
+
                     <p>Phone number: </p>
-                    <input type="tel"
+                    <input type='tel'
                            placeholder={this.state.phone}
                            onChange={this.enterPhone}
                            required/>
+
                     <p>Shipping address: </p>
                     <input placeholder={this.state.shippingAddress}
                            onChange={this.enterAddress}
                            required/>
+
                     <p>Description: </p>
-                    <textarea rows="4"
-                              cols="50"
+                    <textarea rows='4'
+                              cols='50'
                               defaultValue={this.state.description}
                               onChange={this.enterDescription}
                     />
-                    <button onClick={this.postCart}>click</button>
+
+                    <button className='standart__button' onClick={this.postCart}>click</button>
                 </div>
             </div>
-        </div>
+        </React.Fragment>
     }
 }
 
