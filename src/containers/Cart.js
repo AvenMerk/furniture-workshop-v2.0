@@ -6,7 +6,6 @@ import {createCart} from '../actions/cartAction'
 class Cart extends React.Component {
     state = {
         items: JSON.parse(localStorage.getItem('cart')),
-        firstName: 'First Name',
         lastName: 'Last Name',
         middleName: 'Middle Name',
         email: 'test@test.ru',
@@ -16,10 +15,9 @@ class Cart extends React.Component {
     };
 
     getCartForRender = () => {
-        const cartItems = this.state.items;
-        if (cartItems) {
+        if (this.state.items) {
             return <React.Fragment>
-                {Object.entries(cartItems).map(([productId, product], index) =>
+                {Object.entries(this.state.items).map(([productId, product], index) =>
                     <tbody key={index}>
                     <PurchaseItem productId={productId}
                                   quantity={product.quantity}
@@ -50,6 +48,13 @@ class Cart extends React.Component {
         localStorage.setItem('cart', JSON.stringify(newItems));
     };
 
+    getTotalPrice = () => {
+        return Object.entries(this.state.items)
+            .map(([productId, product]) => (product.quantity * product.price))
+            .reduce((acc, value) => acc + value, 0)
+            .toFixed(2);
+    };
+
     enterFirstName = (event) => this.setState({firstName: event.target.value});
 
     enterLastName = (event) => this.setState({lastName: event.target.value});
@@ -75,15 +80,13 @@ class Cart extends React.Component {
     closePopup = () => {
         let popup = document.getElementById('myPopup');
         let overlay = document.getElementById('overlay');
+        popup.classList.toggle('show');
         overlay.style.display = 'none';
         popup.style.display = 'none';
     };
 
     postCart = () => {
-        const totalPrice = Object.entries(this.state.items)
-            .map(([productId, product]) => (product.quantity * product.price))
-            .reduce((acc, value) => acc + value, 0);
-
+        const totalPrice = this.getTotalPrice();
         const purchases = Object.entries(this.state.items)
             .map(([productId, {quantity}]) => ({productId, quantity}));
 
@@ -104,9 +107,7 @@ class Cart extends React.Component {
     };
 
     render() {
-        let totalPrice = Object.entries(this.state.items)
-            .map(([productId, product]) => (product.quantity * product.price))
-            .reduce((acc, value) => acc + value, 0);
+        let totalPrice = this.getTotalPrice();
 
         return <div className='page-container'>
             <h2>Your Cart</h2>
@@ -125,7 +126,7 @@ class Cart extends React.Component {
                 <tfoot>
                 <tr>
                     <th colSpan='3' className='table-left-align'>Total Price:</th>
-                    <th>{totalPrice.toFixed(2)}</th>
+                    <th>{totalPrice}</th>
                 </tr>
                 </tfoot>
             </table>
@@ -149,11 +150,12 @@ class Cart extends React.Component {
             <div className='popup'>
                 <div className='popuptext' id='myPopup'>
                     <p>We need more information about you.</p>
-                    <p>Please, input your:</p>
+                    <p>Please, enter your:</p>
 
                     <p>First name: </p>
                     <input type='text'
-                           placeholder={this.state.firstName}
+                           placeholder={"Enter First Name"}
+                           value={this.state.firstName}
                            onChange={this.enterFirstName}
                            required/>
 
@@ -194,6 +196,7 @@ class Cart extends React.Component {
                     />
 
                     <button className='standart__button' onClick={this.postCart}>click</button>
+                    <button className='standart__button' onClick={this.closePopup}>close</button>
                 </div>
             </div>
         </React.Fragment>
