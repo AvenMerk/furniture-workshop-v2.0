@@ -126,7 +126,7 @@ class Cart extends React.Component {
 
     popupData = () => {
         return <React.Fragment>
-            <div id='overlay'/>
+            <div id='overlay'>
             <div className='popup'>
                 <div className='popuptext' id='myPopup'>
                     <p>We need more information about you.</p>
@@ -185,6 +185,7 @@ class Cart extends React.Component {
                     <button className='standart__button' onClick={this.postCart}>click</button>
                     <button className='standart__button' onClick={this.closePopup}>close</button>
                 </div>
+            </div>
             </div>
         </React.Fragment>
     }
