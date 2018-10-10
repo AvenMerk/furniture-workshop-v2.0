@@ -132,58 +132,61 @@ class Cart extends React.Component {
                     <p>We need more information about you.</p>
                     <p>Please, enter your:</p>
 
-                    <p>First name: </p>
-                    <input type='text'
-                           placeholder={"Enter First Name"}
-                           value={this.state.firstName}
-                           onChange={this.enterFirstName}
-                           required/>
+                    <form className="text">
+                        <p>First name: </p>
+                        <input type='text'
+                               placeholder={"Enter First Name"}
+                               value={this.state.firstName}
+                               onChange={this.enterFirstName}
+                               required/>
 
-                    <p>Last name: </p>
-                    <input type='text'
-                           placeholder={"Enter Last Name"}
-                           value={this.state.lastName}
-                           onChange={this.enterLastName}
-                           required/>
+                        <p>Last name: </p>
+                        <input type='text'
+                               placeholder={"Enter Last Name"}
+                               value={this.state.lastName}
+                               onChange={this.enterLastName}
+                               required/>
 
-                    <p>Middle name: </p>
-                    <input type='text'
-                           placeholder={"Enter Middle Name"}
-                           value={this.state.middleName}
-                           onChange={this.enterMiddleName}
-                           required/>
+                        <p>Middle name: </p>
+                        <input type='text'
+                               placeholder={"Enter Middle Name"}
+                               value={this.state.middleName}
+                               onChange={this.enterMiddleName}
+                               required/>
 
-                    <p>Email: </p>
-                    <input type='email'
-                           placeholder={"Enter your email"}
-                           value={this.state.email}
-                           onChange={this.enterEmail}
-                           required/>
+                        <p>Email: </p>
+                        <input type='email'
+                               placeholder={"Enter your email"}
+                               value={this.state.email}
+                               onChange={this.enterEmail}
+                               required/>
 
-                    <p>Phone number: </p>
-                    <input type='tel'
-                           placeholder={"Enter your phone number"}
-                           value={this.state.phone}
-                           onChange={this.enterPhone}
-                           required/>
+                        <p>Phone number: </p>
+                        <input type='tel'
+                               placeholder={"Enter your phone number"}
+                               value={this.state.phone}
+                               onChange={this.enterPhone}
+                               required/>
 
-                    <p>Shipping address: </p>
-                    <input placeholder={"Enter your shipping address"}
-                           value={this.state.shippingAddress}
-                           onChange={this.enterAddress}
-                           required/>
+                        <p>Shipping address: </p>
+                        <input placeholder={"Enter your shipping address"}
+                               value={this.state.shippingAddress}
+                               onChange={this.enterAddress}
+                               required/>
 
-                    <p>Description: </p>
-                    <textarea rows='3'
-                              cols='33'
-                              maxLength={"200"}
-                              wrap={"hard"}
-                              defaultValue={this.state.description}
-                              onChange={this.enterDescription}
-                    />
+                        <p>Description: </p>
+                        <textarea rows='3'
+                                  cols='33'
+                                  maxLength={"200"}
+                                  wrap={"hard"}
+                                  defaultValue={this.state.description}
+                                  onChange={this.enterDescription}
+                        />
 
-                    <button className='standart__button' onClick={this.postCart}>click</button>
-                    <button className='standart__button' onClick={this.closePopup}>close</button>
+                        <button className='standart__button' onClick={this.postCart}>click</button>
+                        <button className='standart__button' onClick={this.closePopup}>close</button>
+                    </form>
+
                 </div>
             </div>
             </div>
