@@ -9,9 +9,10 @@
   margin: 0;
 }
 
-.header {
+.workshop-header {
   display: flex;
   width: 100%;
+  min-width: 100%;
   color: #3a3a3a;
   background-color: #efefef;
   margin: 0;
@@ -21,27 +22,27 @@
   flex-direction: row;
 }
 
-.header__text {
+.workshop-header-text {
   font-weight: 600;
   font-size: 1.3rem;
   margin: 0;
 }
 
-/* unvisited link */
-a:link, a:visited {
-  color: #2d1609;
-  padding: 1.2em;
+.custom-link, .custom-link:hover {
   text-align: center;
   text-decoration: none;
+  padding: 1.2em;
   display: inline-block;
 }
 
+/* unvisited link */
+a:link, a:visited {
+  color: #2d1609;
+}
+
 /* mouse over link */
-a:hover, a:active {
+.custom-link:hover, .custom-link:active {
   background-color: #2d1609;
   color: #fff;
-  padding: 1.2em;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+
 }

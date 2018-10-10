@@ -1,4 +1,5 @@
 import React from 'react'
+import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap'
 import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
 import {createCart} from '../actions/cartAction'
@@ -62,22 +63,6 @@ class Cart extends React.Component {
 
     enterDescription = (event) => this.setState({description: event.target.value});
 
-    showPopup = () => {
-        const popup = document.getElementById('myPopup');
-        const overlay = document.getElementById('overlay');
-        popup.classList.toggle('show');
-        overlay.style.display = 'block';
-        popup.style.display = 'block';
-    };
-
-    closePopup = () => {
-        let popup = document.getElementById('myPopup');
-        let overlay = document.getElementById('overlay');
-        popup.classList.toggle('show');
-        overlay.style.display = 'none';
-        popup.style.display = 'none';
-    };
-
     postCart = () => {
         const totalPrice = this.getTotalPrice();
         const purchases = Object.entries(this.state.items)
@@ -86,11 +71,10 @@ class Cart extends React.Component {
         const {firstName, lastName, middleName, email, phone, shippingAddress, description} = this.state;
         const cart = {firstName, lastName, middleName, email, phone, shippingAddress, purchases, price: totalPrice, description};
         this.props.dispatch(createCart(JSON.stringify(cart)));
-        this.closePopup();
     };
 
     render() {
-        return <div className='page-container'>
+        return <div className='page-container1'>
             <h2>Your Cart</h2>
 
             <table>
@@ -114,10 +98,10 @@ class Cart extends React.Component {
             </table>
 
             <div className='cart__style'>
-                <button className='standart__button add-cart-button'
-                        onClick={this.showPopup}>
+                <Button id="toggler"
+                        className='standart__button add-cart-button'>
                     Buy
-                </button>
+                </Button>
             </div>
 
             {this.popupData()}
@@ -126,69 +110,76 @@ class Cart extends React.Component {
 
     popupData = () => {
         return <React.Fragment>
-            <div id='overlay'>
-            <div className='popup'>
-                <div className='popuptext' id='myPopup'>
-                    <p>We need more information about you.</p>
-                    <p>Please, enter your:</p>
+            <div>
+                <UncontrolledCollapse toggler="#toggler">
+                    <Card>
+                        <CardBody>
+                            <p>We need more information about you.</p>
+                            <p>Please, enter your:</p>
 
-                    <form className="text">
-                        <p>First name: </p>
-                        <input type='text'
-                               placeholder={"Enter First Name"}
-                               value={this.state.firstName}
-                               onChange={this.enterFirstName}
-                               required/>
+                            <div className="text">
+                                <p>First name: </p>
+                                <input type='text'
+                                       placeholder={"Enter First Name"}
+                                       value={this.state.firstName}
+                                       onChange={this.enterFirstName}
+                                       required/>
 
-                        <p>Last name: </p>
-                        <input type='text'
-                               placeholder={"Enter Last Name"}
-                               value={this.state.lastName}
-                               onChange={this.enterLastName}
-                               required/>
+                                <p>Last name: </p>
+                                <input type='text'
+                                       placeholder={"Enter Last Name"}
+                                       value={this.state.lastName}
+                                       onChange={this.enterLastName}
+                                       required/>
 
-                        <p>Middle name: </p>
-                        <input type='text'
-                               placeholder={"Enter Middle Name"}
-                               value={this.state.middleName}
-                               onChange={this.enterMiddleName}
-                               required/>
+                                <p>Middle name: </p>
+                                <input type='text'
+                                       placeholder={"Enter Middle Name"}
+                                       value={this.state.middleName}
+                                       onChange={this.enterMiddleName}
+                                       required/>
 
-                        <p>Email: </p>
-                        <input type='email'
-                               placeholder={"Enter your email"}
-                               value={this.state.email}
-                               onChange={this.enterEmail}
-                               required/>
+                                <p>Email: </p>
+                                <input type='email'
+                                       placeholder={"Enter your email"}
+                                       value={this.state.email}
+                                       onChange={this.enterEmail}
+                                       required/>
 
-                        <p>Phone number: </p>
-                        <input type='tel'
-                               placeholder={"Enter your phone number"}
-                               value={this.state.phone}
-                               onChange={this.enterPhone}
-                               required/>
+                                <p>Phone number: </p>
+                                <input type='tel'
+                                       placeholder={"Enter your phone number"}
+                                       value={this.state.phone}
+                                       onChange={this.enterPhone}
+                                       required/>
 
-                        <p>Shipping address: </p>
-                        <input placeholder={"Enter your shipping address"}
-                               value={this.state.shippingAddress}
-                               onChange={this.enterAddress}
-                               required/>
+                                <p>Shipping address: </p>
+                                <input placeholder={"Enter your shipping address"}
+                                       value={this.state.shippingAddress}
+                                       onChange={this.enterAddress}
+                                       required/>
 
-                        <p>Description: </p>
-                        <textarea rows='3'
-                                  cols='33'
-                                  maxLength={"200"}
-                                  wrap={"hard"}
-                                  defaultValue={this.state.description}
-                                  onChange={this.enterDescription}
-                        />
+                                <p>Description: </p>
+                                <textarea rows='3'
+                                          cols='33'
+                                          maxLength={"200"}
+                                          wrap={"hard"}
+                                          defaultValue={this.state.description}
+                                          onChange={this.enterDescription}
+                                />
 
-                        <button className='standart__button' onClick={this.postCart}>click</button>
-                        <button className='standart__button' onClick={this.closePopup}>close</button>
-                    </form>
-
-                </div>
-            </div>
+                                <button className='standart__button'
+                                        onClick={this.postCart}>
+                                    click
+                                </button>
+                                <button id="toggler"
+                                        className='standart__button'>
+                                    close
+                                </button>
+                            </div>
+                        </CardBody>
+                    </Card>
+                </UncontrolledCollapse>
             </div>
         </React.Fragment>
     }

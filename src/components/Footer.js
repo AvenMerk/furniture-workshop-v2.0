@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Footer = () => (
-    <footer className="footer">
-        <div className="footer__text">
+    <footer className="workshop-footer">
+        <div className="workshop-footer-text">
             <p>My profile, git etc.</p>
         </div>
     </footer>

@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Header = () => (
     <React.Fragment>
-        {/*<div className="logo"></div>*/}
-        <header className="header">
+        <header className="workshop-header">
             <p id="logo">LOGO</p>
-            <Link to="/" className="is-active header__text" exact={'true'}>Categories</Link>
-            <Link to="/about" className="is-active header__text">About</Link>
-            <Link to="/cart" className="is-active header__text">Cart</Link>
+            <Link to="/" className="custom-link workshop-header-text" exact={'true'}>Categories</Link>
+            <Link to="/about" className="custom-link workshop-header-text">About</Link>
+            <Link to="/cart" className="custom-link workshop-header-text">Cart</Link>
         </header>
     </React.Fragment>
 );

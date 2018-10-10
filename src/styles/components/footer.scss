@@ -1,23 +1,21 @@
 @import '../base/settings.scss';
 
-.footer {
+.workshop-footer {
   color: #3a3a3a;
   background-color: #efefef;
-  margin: 0;
   font-family: 'Noto Serif JP', sans-serif;
   border-top: 0.02em solid rgba(63, 25, 10, 0.79);
   width: 100%;
   position: fixed;
-  right: 0;
   bottom: 0;
-  left: 0;
   text-align: center;
+  max-height: 60px;
 }
 
-.footer__text {
+.workshop-footer-text {
   font-size: 1rem;
   margin: 0;
-  padding-left: 1em;
+  padding-top: 1em;
   vertical-align: bottom;
   text-decoration: none;
   display: inline-block;
