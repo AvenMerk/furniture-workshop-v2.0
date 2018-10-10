@@ -6,11 +6,6 @@ import {createCart} from '../actions/cartAction'
 class Cart extends React.Component {
     state = {
         items: JSON.parse(localStorage.getItem('cart')),
-        lastName: 'Last Name',
-        middleName: 'Middle Name',
-        email: 'test@test.ru',
-        phone: '111111',
-        shippingAddress: 'Your shipping address',
         description: 'Add your description'
     };
 
@@ -146,30 +141,35 @@ class Cart extends React.Component {
 
                     <p>Last name: </p>
                     <input type='text'
-                           placeholder={this.state.lastName}
+                           placeholder={"Enter Last Name"}
+                           value={this.state.lastName}
                            onChange={this.enterLastName}
                            required/>
 
                     <p>Middle name: </p>
                     <input type='text'
-                           placeholder={this.state.middleName}
+                           placeholder={"Enter Middle Name"}
+                           value={this.state.middleName}
                            onChange={this.enterMiddleName}
                            required/>
 
                     <p>Email: </p>
                     <input type='email'
-                           placeholder={this.state.email}
+                           placeholder={"Enter your email"}
+                           value={this.state.email}
                            onChange={this.enterEmail}
                            required/>
 
                     <p>Phone number: </p>
                     <input type='tel'
-                           placeholder={this.state.phone}
+                           placeholder={"Enter your phone number"}
+                           value={this.state.phone}
                            onChange={this.enterPhone}
                            required/>
 
                     <p>Shipping address: </p>
-                    <input placeholder={this.state.shippingAddress}
+                    <input placeholder={"Enter your shipping address"}
+                           value={this.state.shippingAddress}
                            onChange={this.enterAddress}
                            required/>
 
