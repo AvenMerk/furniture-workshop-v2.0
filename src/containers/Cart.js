@@ -174,8 +174,10 @@ class Cart extends React.Component {
                            required/>
 
                     <p>Description: </p>
-                    <textarea rows='4'
-                              cols='50'
+                    <textarea rows='3'
+                              cols='33'
+                              maxLength={"200"}
+                              wrap={"hard"}
                               defaultValue={this.state.description}
                               onChange={this.enterDescription}
                     />

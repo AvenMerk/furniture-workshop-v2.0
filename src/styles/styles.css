@@ -10,10 +10,12 @@ button {
   cursor: pointer; }
 
 li {
-  list-style-type: none; }
+  list-style-type: none;
+  margin-bottom: 1em;
+  margin-left: 1em; }
 
 h2 {
-  padding: 1em 0 0.5em 0;
+  padding: 2em 0 1.5em 0;
   letter-spacing: 2px; }
 
 input[type=number] {
@@ -59,9 +61,7 @@ input[type=number] {
   font-family: 'Noto Serif JP', sans-serif;
   border-bottom: 0.1em solid #3f190a;
   align-items: center;
-  flex-direction: row;
-  position: fixed;
-  top: 0; }
+  flex-direction: row; }
 
 .header__text {
   font-weight: 600;
@@ -91,9 +91,12 @@ a:hover, a:active {
   margin: 0;
   font-family: 'Noto Serif JP', sans-serif;
   border-top: 0.02em solid rgba(63, 25, 10, 0.79);
+  width: 100%;
   position: fixed;
-  bottom: 0px;
-  width: 100%; }
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center; }
 
 .footer__text {
   font-size: 1rem;
@@ -107,16 +110,16 @@ a:hover, a:active {
   max-width: 100%;
   margin: 0; }
 
+.page-container {
+  width: 70%;
+  padding-left: 15%;
+  padding-right: 15%; }
+
 @media screen and (min-width: 992px) {
   .page-container {
     width: 60%;
     padding-left: 20%;
     padding-right: 20%; } }
-
-.page-container {
-  width: 70%;
-  padding-left: 15%;
-  padding-right: 15%; }
 
 .main {
   padding-left: 1em; }
@@ -173,3 +176,61 @@ tfoot th, thead th {
 .table-left-align {
   text-align: left;
   padding-left: 1.5em; }
+
+#overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #999;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  z-index: 1; }
+
+/* Popup container - can be anything you want */
+.popup {
+  display: inline-block;
+  position: relative;
+  margin-top: 10em;
+  margin-left: 25%;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%; }
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s; }
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/*fix the size of textarea*/
+textarea {
+  resize: none; }
