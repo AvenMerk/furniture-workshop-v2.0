@@ -74,7 +74,7 @@ class Cart extends React.Component {
     };
 
     render() {
-        return <div className='page-container1'>
+        return <div className='workshop-page-container'>
             <h2>Your Cart</h2>
 
             <table>
