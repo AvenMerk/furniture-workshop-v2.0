@@ -73,6 +73,17 @@ class Cart extends React.Component {
         this.props.dispatch(createCart(JSON.stringify(cart)));
     };
 
+    stateCheck = (e) => {
+        const {firstName, lastName, middleName, email, phone, shippingAddress} = this.state;
+        console.log({firstName, lastName, middleName, email, phone, shippingAddress});
+        if (firstName && lastName && middleName && email &&
+        phone && shippingAddress !== undefined) {
+            e.preventDefault();
+            this.postCart();
+        }
+    };
+
+
     render() {
         return <div className='workshop-page-container'>
             <h2>Your Cart</h2>
@@ -110,72 +121,96 @@ class Cart extends React.Component {
 
     popupData = () => {
         return <React.Fragment>
-            <div>
+            <div className="workshop-collapse-area">
                 <UncontrolledCollapse toggler="#toggler">
                     <Card>
                         <CardBody>
                             <p>We need more information about you.</p>
                             <p>Please, enter your:</p>
 
-                            <div className="text">
-                                <p>First name: </p>
-                                <input type='text'
-                                       placeholder={"Enter First Name"}
-                                       value={this.state.firstName}
-                                       onChange={this.enterFirstName}
-                                       required/>
+                            <div>
+                                <form className="workshop-collapse-text">
 
-                                <p>Last name: </p>
-                                <input type='text'
-                                       placeholder={"Enter Last Name"}
-                                       value={this.state.lastName}
-                                       onChange={this.enterLastName}
-                                       required/>
+                                     <div>
+                                         <label htmlFor="fname">First name: </label>
+                                         <input type='text'
+                                                name="fname"
+                                                placeholder={"Enter First Name"}
+                                                defaultValue={this.state.firstName}
+                                                onChange={this.enterFirstName}
+                                                required/>
+                                     </div>
 
-                                <p>Middle name: </p>
-                                <input type='text'
-                                       placeholder={"Enter Middle Name"}
-                                       value={this.state.middleName}
-                                       onChange={this.enterMiddleName}
-                                       required/>
+                                    <div>
+                                        <label htmlFor="lname">Last name: </label>
+                                        <input type='text'
+                                               name="lname"
+                                               placeholder={"Enter Last Name"}
+                                               defaultValue={this.state.lastName}
+                                               onChange={this.enterLastName}
+                                               required/>
+                                    </div>
 
-                                <p>Email: </p>
-                                <input type='email'
-                                       placeholder={"Enter your email"}
-                                       value={this.state.email}
-                                       onChange={this.enterEmail}
-                                       required/>
+                                    <div>
+                                        <label htmlFor="mname">Middle name: </label>
+                                        <input type='text'
+                                               name="mname"
+                                               placeholder={"Enter Middle Name"}
+                                               defaultValue={this.state.middleName}
+                                               onChange={this.enterMiddleName}
+                                               required/>
+                                    </div>
 
-                                <p>Phone number: </p>
-                                <input type='tel'
-                                       placeholder={"Enter your phone number"}
-                                       value={this.state.phone}
-                                       onChange={this.enterPhone}
-                                       required/>
+                                    <div>
+                                        <label htmlFor="email">Email: </label>
+                                        <input type='email'
+                                               name="email"
+                                               placeholder={"Enter your email"}
+                                               defaultValue={this.state.email}
+                                               onChange={this.enterEmail}
+                                               required/>
+                                    </div>
 
-                                <p>Shipping address: </p>
-                                <input placeholder={"Enter your shipping address"}
-                                       value={this.state.shippingAddress}
-                                       onChange={this.enterAddress}
-                                       required/>
+                                    <div>
+                                        <label htmlFor="phone">Phone number: </label>
+                                        <input type='tel'
+                                               name="phone"
+                                               placeholder={"Enter your phone number"}
+                                               defaultValue={this.state.phone}
+                                               onChange={this.enterPhone}
+                                               required/>
+                                    </div>
 
-                                <p>Description: </p>
-                                <textarea rows='3'
-                                          cols='33'
-                                          maxLength={"200"}
-                                          wrap={"hard"}
-                                          defaultValue={this.state.description}
-                                          onChange={this.enterDescription}
-                                />
+                                    <div>
+                                        <label htmlFor="address">Shipping address: </label>
+                                        <input placeholder={"Enter your shipping address"}
+                                               name="address"
+                                               defaultValue={this.state.shippingAddress}
+                                               onChange={this.enterAddress}
+                                               required/>
+                                    </div>
+
+                                    <div>
+                                        <label htmlFor="description">Description: </label>
+                                        <textarea rows='3'
+                                                  cols='33'
+                                                  maxLength={"200"}
+                                                  wrap={"hard"}
+                                                  name="description"
+                                                  defaultValue={this.state.description}
+                                                  onChange={this.enterDescription}
+                                        />
+                                    </div>
 
                                 <button className='standart__button'
                                         onClick={this.postCart}>
                                     click
                                 </button>
-                                <button id="toggler"
-                                        className='standart__button'>
-                                    close
-                                </button>
+                                <input type="submit"
+                                       value="Submit"
+                                       className='standart__button'
+                                       onClick={this.stateCheck}/>
+                                </form>
                             </div>
                         </CardBody>
                     </Card>
