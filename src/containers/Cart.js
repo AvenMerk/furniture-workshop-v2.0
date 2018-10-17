@@ -1,5 +1,5 @@
 import React from 'react'
-import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap'
+import { UncontrolledCollapse, Button, CardBody, Card, Container, Row, Col } from 'reactstrap'
 import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
 import {createCart} from '../actions/cartAction'
@@ -88,25 +88,18 @@ class Cart extends React.Component {
         return <div className='workshop-page-container'>
             <h2>Your Cart</h2>
 
-            <table>
-                <thead>
-                <tr>
-                    <th className='table-left-align'>Product</th>
-                    <th colSpan='2'>Amount</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-
-                <tbody>
-                {this.getCartForRender()}
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th colSpan='3' className='table-left-align'>Total Price:</th>
-                    <th>{this.getTotalPrice()}</th>
-                </tr>
-                </tfoot>
-            </table>
+            <Container>
+                <Row>
+                    <Col xs="3" className="workshop-cart-col-header">Product</Col>
+                    <Col xs="6" className="workshop-cart-col-header">Amount</Col>
+                    <Col xs="3" className="workshop-cart-col-header">Price</Col>
+                </Row>
+                    {this.getCartForRender()}
+                    <Row >
+                        <Col xs="9" className="workshop-cart-col-footer">Total Price:</Col>
+                        <Col xs="3" className="workshop-cart-col-header">{this.getTotalPrice()}</Col>
+                    </Row>
+            </Container>
 
             <div className='cart__style'>
                 <Button id="toggler"
@@ -128,79 +121,85 @@ class Cart extends React.Component {
                             <p>We need more information about you.</p>
                             <p>Please, enter your:</p>
 
+                            <Container>
+
                             <div>
                                 <form className="workshop-collapse-text">
+                                    <Row>
+                                        <Col>
+                                            <label htmlFor="fname">First name: </label>
+                                            <input type='text'
+                                                   name="fname"
+                                                   placeholder={"Enter First Name"}
+                                                   defaultValue={this.state.firstName}
+                                                   onChange={this.enterFirstName}
+                                                   required/>
+                                        </Col>
+                                        <Col>
+                                            <label htmlFor="lname">Last name: </label>
+                                            <input type='text'
+                                                   name="lname"
+                                                   placeholder={"Enter Last Name"}
+                                                   defaultValue={this.state.lastName}
+                                                   onChange={this.enterLastName}
+                                                   required/>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <label htmlFor="mname">Middle name: </label>
+                                            <input type='text'
+                                                   name="mname"
+                                                   placeholder={"Enter Middle Name"}
+                                                   defaultValue={this.state.middleName}
+                                                   onChange={this.enterMiddleName}
+                                                   required/>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <label htmlFor="email">Email: </label>
+                                            <input type='email'
+                                                   name="email"
+                                                   placeholder={"Enter your email"}
+                                                   defaultValue={this.state.email}
+                                                   onChange={this.enterEmail}
+                                                   required/>
+                                        </Col>
+                                        <Col>
+                                            <label htmlFor="phone">Phone number: </label>
+                                            <input type='tel'
+                                                   name="phone"
+                                                   placeholder={"Enter your phone number"}
+                                                   defaultValue={this.state.phone}
+                                                   onChange={this.enterPhone}
+                                                   required/>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <label htmlFor="address">Shipping address: </label>
+                                            <input placeholder={"Enter your shipping address"}
+                                                   name="address"
+                                                   defaultValue={this.state.shippingAddress}
+                                                   onChange={this.enterAddress}
+                                                   required/>
+                                        </Col>
 
-                                     <div>
-                                         <label htmlFor="fname">First name: </label>
-                                         <input type='text'
-                                                name="fname"
-                                                placeholder={"Enter First Name"}
-                                                defaultValue={this.state.firstName}
-                                                onChange={this.enterFirstName}
-                                                required/>
-                                     </div>
+                                    </Row>
 
-                                    <div>
-                                        <label htmlFor="lname">Last name: </label>
-                                        <input type='text'
-                                               name="lname"
-                                               placeholder={"Enter Last Name"}
-                                               defaultValue={this.state.lastName}
-                                               onChange={this.enterLastName}
-                                               required/>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="mname">Middle name: </label>
-                                        <input type='text'
-                                               name="mname"
-                                               placeholder={"Enter Middle Name"}
-                                               defaultValue={this.state.middleName}
-                                               onChange={this.enterMiddleName}
-                                               required/>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="email">Email: </label>
-                                        <input type='email'
-                                               name="email"
-                                               placeholder={"Enter your email"}
-                                               defaultValue={this.state.email}
-                                               onChange={this.enterEmail}
-                                               required/>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="phone">Phone number: </label>
-                                        <input type='tel'
-                                               name="phone"
-                                               placeholder={"Enter your phone number"}
-                                               defaultValue={this.state.phone}
-                                               onChange={this.enterPhone}
-                                               required/>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="address">Shipping address: </label>
-                                        <input placeholder={"Enter your shipping address"}
-                                               name="address"
-                                               defaultValue={this.state.shippingAddress}
-                                               onChange={this.enterAddress}
-                                               required/>
-                                    </div>
-
-                                    <div>
-                                        <label htmlFor="description">Description: </label>
-                                        <textarea rows='3'
-                                                  cols='33'
-                                                  maxLength={"200"}
-                                                  wrap={"hard"}
-                                                  name="description"
-                                                  defaultValue={this.state.description}
-                                                  onChange={this.enterDescription}
-                                        />
-                                    </div>
+                                    <Row>
+                                        <Col>
+                                            <label htmlFor="description">Description: </label>
+                                            <textarea rows='3'
+                                                      cols='33'
+                                                      maxLength={"200"}
+                                                      wrap={"hard"}
+                                                      name="description"
+                                                      defaultValue={this.state.description}
+                                                      onChange={this.enterDescription}/>
+                                        </Col>
+                                    </Row>
 
                                 <button className='standart__button'
                                         onClick={this.postCart}>
@@ -212,6 +211,7 @@ class Cart extends React.Component {
                                        onClick={this.stateCheck}/>
                                 </form>
                             </div>
+                            </Container>
                         </CardBody>
                     </Card>
                 </UncontrolledCollapse>
