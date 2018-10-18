@@ -101,23 +101,23 @@ class Cart extends React.Component {
                     </Row>
             </Container>
 
+            {this.popupData()}
+
             <div className='cart__style'>
                 <Button id="toggler"
                         className='standart__button add-cart-button'>
                     Buy
                 </Button>
             </div>
-
-            {this.popupData()}
         </div>
     }
 
     popupData = () => {
         return <React.Fragment>
-            <div className="workshop-collapse-area">
-                <UncontrolledCollapse toggler="#toggler">
-                    <Card>
-                        <CardBody>
+            <div>
+                <UncontrolledCollapse toggler="#toggler" className="workshop-collapse-area">
+                    <Card className="workshop-collapse-background">
+                        <CardBody className="workshop-collapse-background">
                             <p>We need more information about you.</p>
                             <p>Please, enter your:</p>
 
@@ -125,62 +125,68 @@ class Cart extends React.Component {
 
                             <div>
                                 <form className="workshop-collapse-text">
-                                    <Row>
-                                        <Col>
+                                    <Row className="workshop-registration-form-row">
+                                        <Col xs="6">
                                             <label htmlFor="fname">First name: </label>
                                             <input type='text'
+                                                   className="workshop-registration-input"
                                                    name="fname"
                                                    placeholder={"Enter First Name"}
                                                    defaultValue={this.state.firstName}
                                                    onChange={this.enterFirstName}
                                                    required/>
                                         </Col>
-                                        <Col>
+                                        <Col xs="6">
                                             <label htmlFor="lname">Last name: </label>
                                             <input type='text'
                                                    name="lname"
+                                                   className="workshop-registration-input"
                                                    placeholder={"Enter Last Name"}
                                                    defaultValue={this.state.lastName}
                                                    onChange={this.enterLastName}
                                                    required/>
                                         </Col>
                                     </Row>
-                                    <Row>
-                                        <Col>
+                                    <Row className="workshop-registration-form-row">
+                                        <Col xs="6">
                                             <label htmlFor="mname">Middle name: </label>
                                             <input type='text'
                                                    name="mname"
+                                                   className="workshop-registration-input"
                                                    placeholder={"Enter Middle Name"}
                                                    defaultValue={this.state.middleName}
                                                    onChange={this.enterMiddleName}
                                                    required/>
                                         </Col>
                                     </Row>
-                                    <Row>
-                                        <Col>
+                                    <Row className="workshop-registration-form-row">
+                                        <Col xs="6">
                                             <label htmlFor="email">Email: </label>
                                             <input type='email'
                                                    name="email"
+                                                   className="workshop-registration-input"
                                                    placeholder={"Enter your email"}
                                                    defaultValue={this.state.email}
                                                    onChange={this.enterEmail}
                                                    required/>
                                         </Col>
-                                        <Col>
+                                        <Col xs="6">
                                             <label htmlFor="phone">Phone number: </label>
                                             <input type='tel'
                                                    name="phone"
+                                                   className="workshop-registration-input"
                                                    placeholder={"Enter your phone number"}
                                                    defaultValue={this.state.phone}
                                                    onChange={this.enterPhone}
                                                    required/>
                                         </Col>
                                     </Row>
-                                    <Row>
-                                        <Col>
+                                    <Row className="workshop-registration-form-row">
+                                        <Col xs="6">
                                             <label htmlFor="address">Shipping address: </label>
                                             <input placeholder={"Enter your shipping address"}
                                                    name="address"
+                                                   className="workshop-registration-input"
                                                    defaultValue={this.state.shippingAddress}
                                                    onChange={this.enterAddress}
                                                    required/>
@@ -188,27 +194,30 @@ class Cart extends React.Component {
 
                                     </Row>
 
-                                    <Row>
-                                        <Col>
+                                    <Row className="workshop-registration-form-row">
+                                        <Col xs="6">
                                             <label htmlFor="description">Description: </label>
                                             <textarea rows='3'
                                                       cols='33'
                                                       maxLength={"200"}
                                                       wrap={"hard"}
                                                       name="description"
+                                                      className="workshop-registration-input"
                                                       defaultValue={this.state.description}
                                                       onChange={this.enterDescription}/>
                                         </Col>
                                     </Row>
 
-                                <button className='standart__button'
-                                        onClick={this.postCart}>
-                                    click
-                                </button>
-                                <input type="submit"
-                                       value="Submit"
-                                       className='standart__button'
-                                       onClick={this.stateCheck}/>
+                                    <div>
+                                        <button className='standart__button'
+                                                onClick={this.postCart}>
+                                            click
+                                        </button>
+                                        <input type="submit"
+                                               value="Submit"
+                                               className='standart__button'
+                                               onClick={this.stateCheck}/>
+                                    </div>
                                 </form>
                             </div>
                             </Container>
