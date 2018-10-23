@@ -105,7 +105,7 @@ class Cart extends React.Component {
 
             <div className='cart__style'>
                 <Button id="toggler"
-                        className='standart__button add-cart-button'>
+                        className='standart__button'>
                     Buy
                 </Button>
             </div>
@@ -116,7 +116,7 @@ class Cart extends React.Component {
         return <React.Fragment>
             <div>
                 <UncontrolledCollapse toggler="#toggler" className="workshop-collapse-area">
-                    <Card className="workshop-collapse-background">
+                    <Card className="workshop-collapse-background  border-none" outline={true}>
                         <CardBody className="workshop-collapse-background">
                             <p>We need more information about you.</p>
                             <p>Please, enter your:</p>
@@ -209,10 +209,6 @@ class Cart extends React.Component {
                                     </Row>
 
                                     <div>
-                                        <button className='standart__button'
-                                                onClick={this.postCart}>
-                                            click
-                                        </button>
                                         <input type="submit"
                                                value="Submit"
                                                className='standart__button'
