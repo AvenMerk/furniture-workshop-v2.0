@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchProduct} from "../actions/productsAction";
+import NumberInput from 'grommet/components/NumberInput';
 
 class ProductPage extends React.Component {
     state = {
@@ -66,7 +67,10 @@ class ProductPage extends React.Component {
                             onSubmit={this.addToCartOnClick}
                             className="add-option"
                         >
-                            <input  type="number" min="0" max="100" step="1" value={quantity} onChange={this.handleProductAmountChange()}/>
+                            <NumberInput value={quantity}
+                                         min="0"
+                                         max="100"
+                                         onChange={this.handleProductAmountChange()} />
                             <button className="standart__button">Add to cart</button>
                         </form>
                     </div>
