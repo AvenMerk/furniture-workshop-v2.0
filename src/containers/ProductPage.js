@@ -68,8 +68,8 @@ class ProductPage extends React.Component {
                             className="add-option"
                         >
                             <NumberInput value={quantity}
-                                         min="0"
-                                         max="100"
+                                         min={0}
+                                         max={100}
                                          onChange={this.handleProductAmountChange()} />
                             <button className="standart__button">Add to cart</button>
                         </form>

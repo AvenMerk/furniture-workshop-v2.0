@@ -7,8 +7,8 @@ const PurchaseItem = ({productId, quantity, name, price, onChange, onClick}) => 
         <Col xs="3" className="workshop-cart-col">{name}</Col>
         <Col xs="3" className="workshop-cart-col">
             <NumberInput value={quantity}
-                         min="0"
-                         max="100"
+                         min={0}
+                         max={100}
                          onChange={onChange} />
         </Col>
         <Col xs="3" className="workshop-cart-col">
@@ -25,11 +25,4 @@ const PurchaseItem = ({productId, quantity, name, price, onChange, onClick}) => 
 
 export default PurchaseItem
 
-// <input className="add-option__cart"
-// type="number"
-// min="0"
-// max="100"
-// step="1"
-// value={quantity}
-// onChange={onChange}
-// />
+
