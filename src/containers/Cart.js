@@ -1,6 +1,6 @@
 import React from 'react'
 import { UncontrolledCollapse, Button, CardBody, Card, Container, Row, Col } from 'reactstrap'
-import Columns from 'grommet/components/Columns';
+import { Columns, Box } from 'grommet/components/Columns';
 import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
 import {createCart} from '../actions/cartAction'
