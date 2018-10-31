@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchProduct} from "../actions/productsAction";
 import NumberInput from 'grommet/components/NumberInput';
+import {ToastContainer, ToastStore} from 'react-toasts';
 
 class ProductPage extends React.Component {
     state = {
@@ -13,10 +14,6 @@ class ProductPage extends React.Component {
         const {dispatch} = this.props;
         dispatch(fetchProduct(this.state.productId))
     };
-
-    // setProductName() {
-    //     return => this.setState({name: event.ta})
-    // }
 
     handleProductAmountChange() {
         return (event) => this.setState({quantity: event.target.value});
@@ -44,8 +41,8 @@ class ProductPage extends React.Component {
                 "price": price
             };
         }
-
         localStorage.setItem('cart', JSON.stringify(cart));
+        ToastStore.success("Item was added to your cart");
     };
 
     render() {
@@ -74,6 +71,7 @@ class ProductPage extends React.Component {
                             <button className="standart__button">Add to cart</button>
                         </form>
                     </div>
+                    <ToastContainer store={ToastStore}/>
                 </div>
                 : (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
             }
