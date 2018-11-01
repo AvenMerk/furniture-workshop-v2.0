@@ -1,3 +1,10 @@
 .workshop-toast-position {
   margin-top: 5em;
+  margin-right: 15%;
+}
+
+@media screen and (min-width: 992px) {
+  .workshop-toast-position {
+    margin-right: 20%;
+  }
 }
