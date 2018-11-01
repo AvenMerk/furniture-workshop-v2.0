@@ -75,11 +75,11 @@ class ProductPage extends React.Component {
                                          onChange={this.handleProductAmountChange()} />
                             <button className="standart__button">Add to cart</button>
                         </form>
+                        <ToastContainer className="workshop-toast-position"
+                                        position={ToastContainer.POSITION.TOP_RIGHT}
+                                        lightBackground
+                                        store={ToastStore}/>
                     </div>
-                    <ToastContainer className="workshop-toast-position"
-                                    position={ToastContainer.POSITION.TOP_RIGHT}
-                                    lightBackground
-                                    store={ToastStore}/>
                 </div>
                 : (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
             }
