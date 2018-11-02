@@ -1,4 +1,4 @@
-import {REQUEST_CART, RECEIVE_CART} from '../actions/cartAction';
+import {REQUEST_CART, RECEIVE_CART, RECEIVE_CART_ERROR} from '../actions/cartAction';
 
 
 const cartReducer = (state = {}, action) => {
@@ -6,13 +6,22 @@ const cartReducer = (state = {}, action) => {
         case REQUEST_CART:
             return {
                 ...state,
+                type: REQUEST_CART,
                 sending: true
             };
         case RECEIVE_CART:
             return {
                 ...state,
+                type: RECEIVE_CART,
                 sending: false,
                 response: action.response
+            };
+            case RECEIVE_CART_ERROR:
+            return {
+                ...state,
+                type: RECEIVE_CART_ERROR,
+                sending: false,
+                error: action.error
             };
         default:
             return state

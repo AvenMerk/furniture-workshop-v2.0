@@ -2,7 +2,8 @@ import React from 'react'
 import {Collapse, Button, CardBody, Card, Container, Row, Col} from 'reactstrap'
 import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
-import {createCart} from '../actions/cartAction'
+import {createCart, RECEIVE_CART, RECEIVE_CART_ERROR} from '../actions/cartAction'
+import {ToastContainer, ToastStore} from 'react-toasts';
 
 class Cart extends React.Component {
     state = {
@@ -10,6 +11,16 @@ class Cart extends React.Component {
         description: 'Add your description',
         collapsed: true,
     };
+
+    static getDerivedStateFromProps(prevProps) {
+        if (prevProps.type === RECEIVE_CART) {
+            ToastStore.success("Cart was sended");
+        } else if (prevProps.type === RECEIVE_CART_ERROR) {
+            ToastStore.error("ERERERER DFd");
+        }
+
+        return null;
+    }
 
     getCartForRender = () => {
         if (this.state.items) {
@@ -106,11 +117,17 @@ class Cart extends React.Component {
                     Buy
                 </Button>
             </div>
+            <ToastContainer className="workshop-toast-position"
+                            position={ToastContainer.POSITION.TOP_RIGHT}
+                            lightBackground
+                            store={ToastStore}/>
         </div>
     }
 
     // TODO 1. переименовать collapsed на open (чтобы было понятно в isOpen())
     // TODO 2. привести в порядок кнопки (убрать hide, переместить ф-ии на Submit)
+    // TODO 3. Скрывать кнопку Buy после нажатия на неё
+    // TODO 4. Изменить тескт нотификаций
 
     popupData = () => {
         return <React.Fragment>
@@ -228,5 +245,9 @@ class Cart extends React.Component {
     }
 }
 
-export default connect()(Cart)
+const mapStateToProps = state => {
+    const actionType = state.cartReducer.type;
+    return actionType ? {type: actionType} : {};
+};
 
+export default connect(mapStateToProps)(Cart)

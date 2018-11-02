@@ -1,5 +1,6 @@
 export const REQUEST_CART = 'REQUEST_CART';
 export const RECEIVE_CART = 'RECEIVE_CART';
+export const RECEIVE_CART_ERROR = 'RECEIVE_CART_ERROR';
 
 export const requestCart = () => ({
     type: REQUEST_CART
@@ -8,6 +9,11 @@ export const requestCart = () => ({
 export const receiveCart = (response) => ({
     type: RECEIVE_CART,
     response: response,
+});
+
+export const receiveCartError = (error) => ({
+    type: RECEIVE_CART_ERROR,
+    error: error,
 });
 
 export const createCart = (cart) => (dispatch) => {
@@ -22,5 +28,5 @@ export const createCart = (cart) => (dispatch) => {
             body: cart
         })
         .then(response => dispatch(receiveCart(response)),
-                error => console.log("Something went wrong", error))
+                error => dispatch(receiveCartError(error)));
 };
