@@ -1,6 +1,5 @@
 import React from 'react'
-import { UncontrolledCollapse, Button, CardBody, Card, Container, Row, Col } from 'reactstrap'
-import { Columns, Box } from 'grommet/components/Columns';
+import { Collapse, Button, CardBody, Card, Container, Row, Col } from 'reactstrap'
 import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
 import {createCart} from '../actions/cartAction'
@@ -8,7 +7,8 @@ import {createCart} from '../actions/cartAction'
 class Cart extends React.Component {
     state = {
         items: JSON.parse(localStorage.getItem('cart')),
-        description: 'Add your description'
+        description: 'Add your description',
+        collapsed: true,
     };
 
     getCartForRender = () => {
@@ -64,6 +64,8 @@ class Cart extends React.Component {
 
     enterDescription = (event) => this.setState({description: event.target.value});
 
+    toggleCollapsed = () => this.setState((prevProps) => ({collapsed: !prevProps.collapsed}));
+
     postCart = () => {
         const totalPrice = this.getTotalPrice();
         const purchases = Object.entries(this.state.items)
@@ -82,6 +84,10 @@ class Cart extends React.Component {
             e.preventDefault();
             this.postCart();
         }
+    };
+
+    collapseHide = () => {
+      
     };
 
 
@@ -106,17 +112,21 @@ class Cart extends React.Component {
 
             <div className='cart__style'>
                 <Button id="toggler"
-                        className='standart__button'>
+                        className='standart__button'
+                        onClick={this.toggleCollapsed}>
                     Buy
                 </Button>
             </div>
         </div>
     }
 
+    // TODO 1. переименовать collapsed на open (чтобы было понятно в isOpen())
+    // TODO 2. привести в порядок кнопки (убрать hide, переместить ф-ии на Submit)
+
     popupData = () => {
         return <React.Fragment>
             <div>
-                <UncontrolledCollapse toggler="#toggler" className="workshop-collapse-area">
+                <Collapse isOpen={!this.state.collapsed} toggler="#toggler" className="workshop-collapse-area">
                     <Card className="workshop-collapse-background  border-none" outline={true}>
                         <CardBody className="workshop-collapse-background">
                             <p>We need more information about you.</p>
@@ -214,13 +224,16 @@ class Cart extends React.Component {
                                                value="Submit"
                                                className='standart__button'
                                                onClick={this.stateCheck}/>
+                                        <button onClick={this.toggleCollapsed}>
+                                            Hide
+                                        </button>
                                     </div>
                                 </form>
                             </div>
                             </Container>
                         </CardBody>
                     </Card>
-                </UncontrolledCollapse>
+                </Collapse>
             </div>
         </React.Fragment>
     }
