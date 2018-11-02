@@ -1,5 +1,5 @@
 import React from 'react'
-import { Collapse, Button, CardBody, Card, Container, Row, Col } from 'reactstrap'
+import {Collapse, Button, CardBody, Card, Container, Row, Col} from 'reactstrap'
 import {connect} from 'react-redux'
 import PurchaseItem from '../components/PurchaseItem'
 import {createCart} from '../actions/cartAction'
@@ -66,30 +66,19 @@ class Cart extends React.Component {
 
     toggleCollapsed = () => this.setState((prevProps) => ({collapsed: !prevProps.collapsed}));
 
-    postCart = () => {
-        const totalPrice = this.getTotalPrice();
-        const purchases = Object.entries(this.state.items)
-            .map(([productId, {quantity}]) => ({productId, quantity}));
+    postCart = (event) => {
+        const {firstName, lastName, middleName, email, phone, shippingAddress, description, items} = this.state;
+        if (firstName && lastName && middleName && email && phone && shippingAddress) {
+            event.preventDefault();
 
-        const {firstName, lastName, middleName, email, phone, shippingAddress, description} = this.state;
-        const cart = {firstName, lastName, middleName, email, phone, shippingAddress, purchases, price: totalPrice, description};
-        this.props.dispatch(createCart(JSON.stringify(cart)));
-    };
+            const totalPrice = this.getTotalPrice();
+            const purchases = Object.entries(items)
+                .map(([productId, {quantity}]) => ({productId, quantity}));
 
-    stateCheck = (e) => {
-        const {firstName, lastName, middleName, email, phone, shippingAddress} = this.state;
-        console.log({firstName, lastName, middleName, email, phone, shippingAddress});
-        if (firstName && lastName && middleName && email &&
-        phone && shippingAddress !== undefined) {
-            e.preventDefault();
-            this.postCart();
+            const cart = JSON.stringify({firstName, lastName, middleName, email, phone, shippingAddress, purchases, price: totalPrice, description});
+            this.props.dispatch(createCart(cart));
         }
     };
-
-    collapseHide = () => {
-      
-    };
-
 
     render() {
         return <div className='workshop-page-container'>
@@ -223,7 +212,7 @@ class Cart extends React.Component {
                                         <input type="submit"
                                                value="Submit"
                                                className='standart__button'
-                                               onClick={this.stateCheck}/>
+                                               onClick={this.postCart}/>
                                         <button onClick={this.toggleCollapsed}>
                                             Hide
                                         </button>
