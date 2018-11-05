@@ -15,7 +15,9 @@ class HomePage extends React.Component {
         const isEmpty = category.length === 0;
         return <React.Fragment>
             {isEmpty
-                ? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
+                ? (isFetching ?
+                    <h2 className="workshop-page-container">
+                        Loading...</h2> : <h2>Empty.</h2>)
                 : <div className="workshop-page-container" style={{opacity: isFetching ? 0.5 : 1}}>
                     <h2>Welcome to our furniture workshop!</h2>
                     <div>

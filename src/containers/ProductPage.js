@@ -81,7 +81,7 @@ class ProductPage extends React.Component {
                                         store={ToastStore}/>
                     </div>
                 </div>
-                : (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
+                : (isFetching ? <h2 className="workshop-page-container">Loading...</h2> : <h2>Empty.</h2>)
             }
         </React.Fragment>
     }
