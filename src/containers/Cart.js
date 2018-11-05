@@ -14,9 +14,9 @@ class Cart extends React.Component {
 
     static getDerivedStateFromProps(prevProps) {
         if (prevProps.type === RECEIVE_CART) {
-            ToastStore.success("Cart was sended");
+            ToastStore.success("Congratulations! Your order has been created successfully!");
         } else if (prevProps.type === RECEIVE_CART_ERROR) {
-            ToastStore.error("ERERERER DFd");
+            ToastStore.error("Something went wrong, try again later!");
         }
 
         return null;
@@ -77,6 +77,8 @@ class Cart extends React.Component {
 
     toggleCollapsed = () => this.setState((prevProps) => ({isOpen: !prevProps.isOpen}));
 
+    clearCart = () => localStorage.clear();
+
     postCart = (event) => {
         const {firstName, lastName, middleName, email, phone, shippingAddress, description, items} = this.state;
         if (firstName && lastName && middleName && email && phone && shippingAddress) {
@@ -88,8 +90,13 @@ class Cart extends React.Component {
 
             const cart = JSON.stringify({firstName, lastName, middleName, email, phone, shippingAddress, purchases, price: totalPrice, description});
             this.props.dispatch(createCart(cart));
-            this.toggleCollapsed();
         }
+    };
+
+    checkOut = () => {
+        this.postCart();
+        this.toggleCollapsed();
+        this.clearCart();
     };
 
     render() {
@@ -230,10 +237,7 @@ class Cart extends React.Component {
                                         <input type="submit"
                                                value="Submit"
                                                className='standart__button'
-                                               onClick={this.postCart}/>
-                                        <button onClick={this.toggleCollapsed}>
-                                            Hide
-                                        </button>
+                                               onClick={this.checkOut}/>
                                     </div>
                                 </form>
                             </div>
