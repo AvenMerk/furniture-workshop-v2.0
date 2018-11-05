@@ -60,7 +60,7 @@ class ProductPage extends React.Component {
                 ? <div className="workshop-container-with-links" style={{opacity: isFetching ? 0.5 : 1}}>
                     <div className="workshop-link-to-page">
                         <Link to="/" exact={'true'}> > Categories </Link>
-                        <Link to="/products" exact={'true'}> > {product.category.name}</Link>
+                        <Link to="/products" className="tab" exact={'true'}> > {product.category.name}</Link>
                     </div>
                     <div className="workshop-page-container-with-links">
                         <h2>{product.name}</h2>
