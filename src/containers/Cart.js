@@ -153,11 +153,6 @@ class Cart extends React.Component {
 
     }
 
-    // TODO 1. переименовать collapsed на open (чтобы было понятно в isOpen())
-    // TODO 2. привести в порядок кнопки (убрать hide, переместить ф-ии на Submit)
-    // TODO 3. Скрывать кнопку Buy после нажатия на неё
-    // TODO 4. Изменить тескт нотификаций
-
     popupData = () => {
         return <React.Fragment>
             <div>
