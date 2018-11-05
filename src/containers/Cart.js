@@ -9,7 +9,7 @@ class Cart extends React.Component {
     state = {
         items: JSON.parse(localStorage.getItem('cart')),
         description: 'Add your description',
-        collapsed: true,
+        isOpen: false,
     };
 
     static getDerivedStateFromProps(prevProps) {
@@ -75,7 +75,7 @@ class Cart extends React.Component {
 
     enterDescription = (event) => this.setState({description: event.target.value});
 
-    toggleCollapsed = () => this.setState((prevProps) => ({collapsed: !prevProps.collapsed}));
+    toggleCollapsed = () => this.setState((prevProps) => ({isOpen: !prevProps.isOpen}));
 
     postCart = (event) => {
         const {firstName, lastName, middleName, email, phone, shippingAddress, description, items} = this.state;
@@ -88,6 +88,7 @@ class Cart extends React.Component {
 
             const cart = JSON.stringify({firstName, lastName, middleName, email, phone, shippingAddress, purchases, price: totalPrice, description});
             this.props.dispatch(createCart(cart));
+            this.toggleCollapsed();
         }
     };
 
@@ -132,7 +133,7 @@ class Cart extends React.Component {
     popupData = () => {
         return <React.Fragment>
             <div>
-                <Collapse isOpen={!this.state.collapsed} toggler="#toggler" className="workshop-collapse-area">
+                <Collapse isOpen={this.state.isOpen} toggler="#toggler" className="workshop-collapse-area">
                     <Card className="workshop-collapse-background  border-none" outline={true}>
                         <CardBody className="workshop-collapse-background">
                             <p>We need more information about you.</p>
