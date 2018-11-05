@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../actions/productsAction'
 import ProductPreview from '../components/ProductPreview'
+import {Link} from "react-router-dom";
 
 class ProductsListPage extends React.Component {
     state = {
@@ -20,13 +21,18 @@ class ProductsListPage extends React.Component {
         return <React.Fragment>
             {isEmpty
                 ? (isFetching ? <h2 className="workshop-page-container">Loading...</h2> : <h2>Empty.</h2>)
-                : <div className="workshop-page-container" style={{opacity: isFetching ? 0.5 : 1}}>
-                    <h2>Products:</h2>
-                    {products.filter(product => product.categoryId === id).map((product, index) =>
-                        <div className={''} key={index}>
-                            <ProductPreview id={product.productId} name={product.name} description={product.description}/>
-                        </div>
-                    )}
+                : <div className="workshop-container-with-links" style={{opacity: isFetching ? 0.5 : 1}}>
+                    <div className="workshop-link-to-page">
+                        <Link to="/" exact={'true'}> > Categories</Link>
+                    </div>
+                    <div className="workshop-page-container-with-links">
+                        <h2>Products:</h2>
+                        {products.filter(product => product.categoryId === id).map((product, index) =>
+                            <div className={''} key={index}>
+                                <ProductPreview id={product.productId} name={product.name} description={product.description}/>
+                            </div>
+                        )}
+                    </div>
                 </div>
             }
         </React.Fragment>

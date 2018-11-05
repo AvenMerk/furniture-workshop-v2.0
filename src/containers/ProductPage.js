@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {fetchProduct} from "../actions/productsAction";
 import NumberInput from 'grommet/components/NumberInput';
 import {ToastContainer, ToastStore} from 'react-toasts';
+import { Link } from 'react-router-dom';
 
 class ProductPage extends React.Component {
     state = {
@@ -56,29 +57,35 @@ class ProductPage extends React.Component {
 
         return <React.Fragment>
             {product
-                ? <div className="workshop-page-container" style={{opacity: isFetching ? 0.5 : 1}}>
-                    <h2>{product.name}</h2>
-                    <ul>
-                        <li className="list__style">{`categoryName: ${product.category.name}`}</li>
-                        <li className="list__style">{`description: ${product.description}`}</li>
-                        <li className="list__style">{`price: ${product.price}`}</li>
-                    </ul>
-                    <div className="list__style">
-                        <p>Choose number of products:</p>
-                        <form
-                            onSubmit={this.addToCartOnClick}
-                            className="add-option"
-                        >
-                            <NumberInput value={quantity}
-                                         min={0}
-                                         max={100}
-                                         onChange={this.handleProductAmountChange()} />
-                            <button className="standart__button">Add to cart</button>
-                        </form>
-                        <ToastContainer className="workshop-toast-position"
-                                        position={ToastContainer.POSITION.TOP_RIGHT}
-                                        lightBackground
-                                        store={ToastStore}/>
+                ? <div className="workshop-container-with-links" style={{opacity: isFetching ? 0.5 : 1}}>
+                    <div className="workshop-link-to-page">
+                        <Link to="/" exact={'true'}> > Categories </Link>
+                        <Link to="/products" exact={'true'}> > {product.category.name}</Link>
+                    </div>
+                    <div className="workshop-page-container-with-links">
+                        <h2>{product.name}</h2>
+                        <ul>
+                            <li className="list__style">{`categoryName: ${product.category.name}`}</li>
+                            <li className="list__style">{`description: ${product.description}`}</li>
+                            <li className="list__style">{`price: ${product.price}`}</li>
+                        </ul>
+                        <div className="list__style">
+                            <p>Choose number of products:</p>
+                            <form
+                                onSubmit={this.addToCartOnClick}
+                                className="add-option"
+                            >
+                                <NumberInput value={quantity}
+                                             min={0}
+                                             max={100}
+                                             onChange={this.handleProductAmountChange()} />
+                                <button className="standart__button">Add to cart</button>
+                            </form>
+                            <ToastContainer className="workshop-toast-position"
+                                            position={ToastContainer.POSITION.TOP_RIGHT}
+                                            lightBackground
+                                            store={ToastStore}/>
+                        </div>
                     </div>
                 </div>
                 : (isFetching ? <h2 className="workshop-page-container">Loading...</h2> : <h2>Empty.</h2>)

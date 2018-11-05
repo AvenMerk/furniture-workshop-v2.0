@@ -5,6 +5,17 @@
   margin-bottom: 80px;
 }
 
+.workshop-container-with-links {
+  display: flex;
+  flex-direction: row;
+}
+
+.workshop-page-container-with-links {
+  margin-right: 20%;
+  padding-left: 5%;
+  width: 80%;
+}
+
 .workshop-page-container {
   width: 70%;
   margin-left: 15%;
