@@ -55,10 +55,14 @@ class Cart extends React.Component {
     };
 
     getTotalPrice = () => {
-        return Object.entries(this.state.items)
-            .map(([productId, product]) => (product.quantity * product.price))
-            .reduce((acc, value) => acc + value, 0)
-            .toFixed(2);
+        if (this.state.items) {
+            return Object.entries(this.state.items)
+                .map(([productId, product]) => (product.quantity * product.price))
+                .reduce((acc, value) => acc + value, 0)
+                .toFixed(2);
+        } else {
+            return 0;
+        }
     };
 
     enterFirstName = (event) => this.setState({firstName: event.target.value});
@@ -79,11 +83,9 @@ class Cart extends React.Component {
 
     clearCart = () => localStorage.clear();
 
-    postCart = (event) => {
+    postCart = () => {
         const {firstName, lastName, middleName, email, phone, shippingAddress, description, items} = this.state;
         if (firstName && lastName && middleName && email && phone && shippingAddress) {
-            event.preventDefault();
-
             const totalPrice = this.getTotalPrice();
             const purchases = Object.entries(items)
                 .map(([productId, {quantity}]) => ({productId, quantity}));
@@ -93,43 +95,62 @@ class Cart extends React.Component {
         }
     };
 
-    checkOut = () => {
+    checkOut = (event) => {
+        event.preventDefault();
         this.postCart();
         this.toggleCollapsed();
         this.clearCart();
     };
 
-    render() {
-        return <div className='workshop-page-container'>
-            <h2>Your Cart</h2>
+    showHideButton = () => {
+        const button = document.getElementById('toggler');
+        if (button.style.display === 'none') {
+            button.style.display = 'block';
+        } else {
+            button.style.display = 'none';
+        }
+        this.toggleCollapsed();
+    };
 
-            <Container>
-                <Row>
-                    <Col xs="3" className="workshop-cart-col-header">Product</Col>
-                    <Col xs="6" className="workshop-cart-col-header">Amount</Col>
-                    <Col xs="3" className="workshop-cart-col-header">Price</Col>
-                </Row>
+    render() {
+        if (this.state.items) {
+            return <div className='workshop-page-container'>
+                <h2>Your Cart</h2>
+
+                <Container>
+                    <Row>
+                        <Col xs="3" className="workshop-cart-col-header">Product</Col>
+                        <Col xs="6" className="workshop-cart-col-header">Amount</Col>
+                        <Col xs="3" className="workshop-cart-col-header">Price</Col>
+                    </Row>
                     {this.getCartForRender()}
                     <Row >
                         <Col xs="9" className="workshop-cart-col-footer">Total Price:</Col>
                         <Col xs="3" className="workshop-cart-col-header">{this.getTotalPrice()}</Col>
                     </Row>
-            </Container>
+                </Container>
 
-            {this.popupData()}
+                {this.popupData()}
 
-            <div className='cart__style'>
-                <Button id="toggler"
-                        className='standart__button'
-                        onClick={this.toggleCollapsed}>
-                    Buy
-                </Button>
+                <div className='cart__style'>
+                    <Button id="toggler"
+                            className='standart__button'
+                            onClick={this.showHideButton}>
+                        Buy
+                    </Button>
+                </div>
+                <ToastContainer className="workshop-toast-position"
+                                position={ToastContainer.POSITION.TOP_RIGHT}
+                                lightBackground
+                                store={ToastStore}/>
             </div>
-            <ToastContainer className="workshop-toast-position"
-                            position={ToastContainer.POSITION.TOP_RIGHT}
-                            lightBackground
-                            store={ToastStore}/>
-        </div>
+        } else {
+            return <div className='workshop-page-container'>
+                <h2>Your Cart</h2>
+                <p>Your cart is empty</p>
+            </div>
+        }
+
     }
 
     // TODO 1. переименовать collapsed на open (чтобы было понятно в isOpen())
