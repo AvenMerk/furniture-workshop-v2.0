@@ -1,3 +1,8 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 .workshop-cart-col {
   border: white solid 1.2px;
   background-color: #eaeaea;
@@ -24,10 +29,22 @@
 .grommetux-number-input {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   height: 100%;
+  width: 100%;
   min-height: 3.1em;
   border: 1px solid #ccc;
   background-color: white;
+}
+
+.grommetux-button--plain {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.grommetux-number-input__input {
+  width: 100%;
+  padding-left: 5em;
 }
 
 .grommetux-button {
@@ -46,4 +63,8 @@
   border: none;
 }
 
+#workshop-cart-change-quantity {
+  padding-left: 0;
+  padding-right: 0;
+}
 
