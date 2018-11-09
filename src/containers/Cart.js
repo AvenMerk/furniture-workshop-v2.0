@@ -12,9 +12,14 @@ class Cart extends React.Component {
         isOpen: false,
     };
 
-    static getDerivedStateFromProps(prevProps) {
+    static getDerivedStateFromProps(prevProps, state) {
         if (prevProps.type === RECEIVE_CART) {
             ToastStore.success("Congratulations! Your order has been created successfully!");
+            return {
+                ...state,
+                isOpen: false,
+                clearStore: true,
+            };
         } else if (prevProps.type === RECEIVE_CART_ERROR) {
             ToastStore.error("Something went wrong, try again later!");
         }
@@ -98,8 +103,6 @@ class Cart extends React.Component {
     checkOut = (event) => {
         event.preventDefault();
         this.postCart();
-        this.toggleCollapsed();
-        this.clearCart();
     };
 
     showHideButton = () => {
@@ -113,6 +116,10 @@ class Cart extends React.Component {
     };
 
     render() {
+        if (this.state.clearStore) {
+            this.clearCart();
+        }
+
         if (this.state.items) {
             return <div className='workshop-page-container'>
                 <h2 className="workshop-title">Your Cart</h2>
