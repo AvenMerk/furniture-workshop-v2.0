@@ -10,6 +10,7 @@ input::-webkit-inner-spin-button {
   //only for wide screens
   display: flex;
   align-items: center;
+  min-width: 117px;
 }
 
 .workshop-cart-col-header {
@@ -68,3 +69,6 @@ input::-webkit-inner-spin-button {
   padding-right: 0;
 }
 
+.row {
+  min-width: 473px;
+}

@@ -70,7 +70,8 @@ input[type=number] {
   font-family: 'Noto Serif JP', sans-serif;
   border-bottom: 0.1em solid #3f190a;
   align-items: center;
-  flex-direction: row; }
+  flex-direction: row;
+  min-width: fit-content; }
 
 .workshop-header-text {
   font-weight: 600;
@@ -80,8 +81,7 @@ input[type=number] {
 .custom-link, .custom-link:hover {
   text-align: center;
   text-decoration: none;
-  padding: 1.2em;
-  display: inline-block; }
+  padding: 1.2em; }
 
 /* unvisited link */
 a:link, a:visited {
@@ -176,12 +176,17 @@ a:link, a:visited {
   width: 5em;
   height: 2em; }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; }
+
 .workshop-cart-col {
   border: white solid 1.2px;
   background-color: #eaeaea;
   text-align: center;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  min-width: 117px; }
 
 .workshop-cart-col-header {
   font-weight: bold;
@@ -198,10 +203,20 @@ a:link, a:visited {
 .grommetux-number-input {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   height: 100%;
+  width: 100%;
   min-height: 3.1em;
   border: 1px solid #ccc;
   background-color: white; }
+
+.grommetux-button--plain {
+  display: flex;
+  justify-content: flex-end; }
+
+.grommetux-number-input__input {
+  width: 100%;
+  padding-left: 5em; }
 
 .grommetux-button {
   height: 100%;
@@ -215,6 +230,13 @@ a:link, a:visited {
 .grommetux-input {
   height: 100%;
   border: none; }
+
+#workshop-cart-change-quantity {
+  padding-left: 0;
+  padding-right: 0; }
+
+.row {
+  min-width: 473px; }
 
 .workshop-collapse-area {
   width: 100%;

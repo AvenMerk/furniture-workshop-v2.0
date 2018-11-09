@@ -19,6 +19,7 @@
   border-bottom: 0.1em solid #3f190a;
   align-items: center;
   flex-direction: row;
+  min-width: fit-content;
 }
 
 .workshop-header-text {
@@ -31,7 +32,6 @@
   text-align: center;
   text-decoration: none;
   padding: 1.2em;
-  display: inline-block;
 }
 
 /* unvisited link */
@@ -43,5 +43,4 @@ a:link, a:visited {
 .custom-link:hover, .custom-link:active {
   background-color: #2d1609;
   color: #fff;
-
 }
