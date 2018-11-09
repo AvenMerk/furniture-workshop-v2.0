@@ -1,5 +1,6 @@
 html {
   margin: 0;
+  min-width: fit-content;
 }
 
 body {
@@ -27,6 +28,24 @@ h2 {
 
 input[type=number] {
   padding-left: 1em;
+}
+
+@media screen and (min-width: 319px) and (max-width: 991px) {
+
+  .workshop-title {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    padding: 0.7em 0 0.5em 0;
+    letter-spacing: 1px;
+  }
+
+  li {
+    list-style-type: none;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+  }
 }
 
 

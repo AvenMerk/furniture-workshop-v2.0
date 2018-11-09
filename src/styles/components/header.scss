@@ -44,3 +44,22 @@ a:link, a:visited {
   background-color: #2d1609;
   color: #fff;
 }
+
+@media screen and (max-width: 640px) {
+  #logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding-left: 0.3em;
+  }
+
+  .custom-link, .custom-link:hover {
+    padding: 0.5em;
+  }
+
+  .workshop-header-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+}

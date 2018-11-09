@@ -7,3 +7,17 @@
   flex-direction: column;
   width: 20%;
 }
+
+@media screen and (min-width: 320px) and (max-width: 991px) {
+
+  .workshop-link-to-page {
+    margin-top: 1em;
+    font-size: 1rem;
+    margin-left: 2em;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+  }
+
+}

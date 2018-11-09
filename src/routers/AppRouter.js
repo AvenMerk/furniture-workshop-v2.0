@@ -12,16 +12,18 @@ import CartList from '../containers/Cart'
 const AppRouter = () => (
     <BrowserRouter>
         <React.Fragment>
-            <Header/>
-            <Switch>
-                <Route path="/" component={HomePage} exact={true}/>
-                <Route path="/about" component={AboutPage}/>
-                <Route path="/products" component={ProductsListPage}/>
-                <Route path="/product/:id" component={ProductPage}/>
-                <Route path="/cart" component={CartList}/>
-                <Route component={NotFoundPage}/>
-            </Switch>
-            <Footer/>
+            <div className="workshop-container-full">
+                <Header/>
+                <Switch>
+                    <Route path="/" component={HomePage} exact={true}/>
+                    <Route path="/about" component={AboutPage}/>
+                    <Route path="/products" component={ProductsListPage}/>
+                    <Route path="/product/:id" component={ProductPage}/>
+                    <Route path="/cart" component={CartList}/>
+                    <Route component={NotFoundPage}/>
+                </Switch>
+                <Footer/>
+            </div>
         </React.Fragment>
     </BrowserRouter>
 );

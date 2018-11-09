@@ -7,7 +7,7 @@ function redirectToProductPage(productId) {
 
 const ProductPreview = ({id, name, description}) => (
     <ul>
-        <li className="list__style">
+        <li className="list__style product-page">
             <p>{name}</p>
             <p>{description}</p>
             <button className="standart__button" id={id} onClick={() => redirectToProductPage(id)}>

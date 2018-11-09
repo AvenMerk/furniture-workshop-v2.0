@@ -63,13 +63,13 @@ class ProductPage extends React.Component {
                         <Link to="/products" className="tab" exact={'true'}> > {product.category.name}</Link>
                     </div>
                     <div className="workshop-page-container-with-links">
-                        <h2>{product.name}</h2>
+                        <h2 className="workshop-title">{product.name}</h2>
                         <ul>
                             <li className="list__style">{`categoryName: ${product.category.name}`}</li>
                             <li className="list__style">{`description: ${product.description}`}</li>
                             <li className="list__style">{`price: ${product.price}`}</li>
                         </ul>
-                        <div className="list__style">
+                        <div className="list__style product-page">
                             <p>Choose number of products:</p>
                             <form
                                 onSubmit={this.addToCartOnClick}
@@ -79,7 +79,8 @@ class ProductPage extends React.Component {
                                              min={0}
                                              max={100}
                                              onChange={this.handleProductAmountChange()} />
-                                <button className="standart__button">Add to cart</button>
+                                <button className="standart__button workshop-add-to-cart">
+                                    Add to cart</button>
                             </form>
                             <ToastContainer className="workshop-toast-position"
                                             position={ToastContainer.POSITION.TOP_RIGHT}

@@ -115,7 +115,7 @@ class Cart extends React.Component {
     render() {
         if (this.state.items) {
             return <div className='workshop-page-container'>
-                <h2>Your Cart</h2>
+                <h2 className="workshop-title">Your Cart</h2>
 
                 <Container>
                     <Row>
