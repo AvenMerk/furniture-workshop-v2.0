@@ -63,3 +63,22 @@ a:link, a:visited {
     margin: 0;
   }
 }
+
+@media screen and (min-width: 640px) and (max-width: 990px) {
+  #logo {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding-left: 0.3em;
+  }
+
+  .custom-link, .custom-link:hover {
+    padding: 0.5em;
+  }
+
+  .workshop-header-text {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+}
