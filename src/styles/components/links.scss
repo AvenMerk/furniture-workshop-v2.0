@@ -6,9 +6,10 @@
   display: flex;
   flex-direction: column;
   width: 20%;
+  min-width: 110px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 991px) {
+@media screen and (min-width: 320px) and (max-width: 640px) {
 
   .workshop-link-to-page {
     margin-top: 1em;

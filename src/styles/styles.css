@@ -230,7 +230,11 @@ a:link, a:visited {
     padding-left: 5%;
     padding-right: 5%;
     margin: 0;
-    min-width: fit-content; } }
+    min-width: fit-content; }
+  .workshop-page-container-with-links {
+    margin-right: 10%;
+    padding-left: 5%;
+    width: 90%; } }
 
 .main {
   padding-left: 1em; }
@@ -403,9 +407,10 @@ label {
   letter-spacing: 1px;
   display: flex;
   flex-direction: column;
-  width: 20%; }
+  width: 20%;
+  min-width: 110px; }
 
-@media screen and (min-width: 320px) and (max-width: 991px) {
+@media screen and (min-width: 320px) and (max-width: 640px) {
   .workshop-link-to-page {
     margin-top: 1em;
     font-size: 1rem;
