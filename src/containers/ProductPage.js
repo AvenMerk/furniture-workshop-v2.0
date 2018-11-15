@@ -59,18 +59,18 @@ class ProductPage extends React.Component {
             {product
                 ? <div className="workshop-container-with-links" style={{opacity: isFetching ? 0.5 : 1}}>
                     <div className="workshop-link-to-page">
-                        <Link to="/" exact={'true'}> > Categories </Link>
+                        <Link to="/" exact={'true'}> > Cartoons </Link>
                         <Link to="/products" className="tab" exact={'true'}> > {product.category.name}</Link>
                     </div>
                     <div className="workshop-page-container-with-links">
                         <h2 className="workshop-title">{product.name}</h2>
                         <ul>
-                            <li className="list__style">{`categoryName: ${product.category.name}`}</li>
-                            <li className="list__style">{`description: ${product.description}`}</li>
+                            <li className="list__style">{`Cartoon: ${product.category.name}`}</li>
+                            <li className="list__style">{`${product.description}`}</li>
                             <li className="list__style">{`price: ${product.price}`}</li>
                         </ul>
                         <div className="list__style product-page">
-                            <p>Choose number of products:</p>
+                            <p>Choose number of posters:</p>
                             <form
                                 onSubmit={this.addToCartOnClick}
                                 className="add-option"

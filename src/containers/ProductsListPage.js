@@ -23,10 +23,10 @@ class ProductsListPage extends React.Component {
                 ? (isFetching ? <h2 className="workshop-page-container">Loading...</h2> : <h2>Empty.</h2>)
                 : <div className="workshop-container-with-links" style={{opacity: isFetching ? 0.5 : 1}}>
                     <div className="workshop-link-to-page">
-                        <Link to="/" exact={'true'}> > Categories</Link>
+                        <Link to="/" exact={'true'}> > Cartoons</Link>
                     </div>
                     <div className="workshop-page-container-with-links">
-                        <h2 className="workshop-title">Products:</h2>
+                        <h2 className="workshop-title">Posters:</h2>
                         {products.filter(product => product.categoryId === id).map((product, index) =>
                             <div className={''} key={index}>
                                 <ProductPreview id={product.productId} name={product.name} description={product.description}/>
