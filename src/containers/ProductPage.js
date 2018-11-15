@@ -54,7 +54,8 @@ class ProductPage extends React.Component {
     render() {
         const {product, isFetching} = this.props;
         const {quantity} = this.state;
-
+        const path = "/img/" + this.state.productId + "_medium.jpg";
+        console.log(path);
         return <React.Fragment>
             {product
                 ? <div className="workshop-container-with-links" style={{opacity: isFetching ? 0.5 : 1}}>
@@ -64,7 +65,9 @@ class ProductPage extends React.Component {
                     </div>
                     <div className="workshop-page-container-with-links">
                         <h2 className="workshop-title">{product.name}</h2>
+
                         <ul>
+                            <li className="list__style"><img src={path} /></li>
                             <li className="list__style">{`Cartoon: ${product.category.name}`}</li>
                             <li className="list__style">{`${product.description}`}</li>
                             <li className="list__style">{`price: ${product.price}`}</li>
