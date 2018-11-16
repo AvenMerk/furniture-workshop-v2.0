@@ -26,6 +26,18 @@
   margin-right: 15%;
 }
 
+.workshop-products-list-page-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-top: rgba(63, 25, 10, 0.3) solid 1px;
+  border-bottom: rgba(63, 25, 10, 0.3) solid 1px;
+
+}
+
 @media screen and (min-width: 991px) {
   .workshop-page-container {
     width: 60%;
@@ -82,6 +94,11 @@
     margin: 0;
     min-width: fit-content;
   }
+
+  //.workshop-products-list-page-container {
+  //  display: flex;
+  //  flex-direction: column;
+  //}
 }
 
 @media screen and (min-width: 640px) and (max-width: 990px){
