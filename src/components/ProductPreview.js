@@ -11,7 +11,7 @@ const ProductPreview = ({id, name, description}) => (
         </div>
         <div >
             <ul>
-                <li className="list__style product-page">
+                <li className="workshop-category-item product-page">
                     <p>{name}</p>
                     <p>{description}</p>
                     <button className="standart__button" id={id} onClick={() => redirectToProductPage(id)}>

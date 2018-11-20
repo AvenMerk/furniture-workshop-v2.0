@@ -30,6 +30,11 @@ input[type=number] {
   padding-left: 1em;
 }
 
+p {
+  font-size: large;
+  letter-spacing: 1px;
+}
+
 @media screen and (min-width: 319px) and (max-width: 991px) {
 
   .workshop-title {

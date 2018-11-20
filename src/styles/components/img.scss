@@ -1,8 +1,15 @@
 //for products list
 
 .workshop-products-list-image {
-  padding-right: 2em;
-  min-width: 198px;
+  min-width: 235px;
+  display: flex;
+  justify-content: space-around;
 }
 
 //for product page
+
+@media screen and (min-width: 991px) {
+  .workshop-product-image {
+    padding-right: 2em;
+  }
+}

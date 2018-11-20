@@ -32,6 +32,28 @@
   margin-left: 1em;
 }
 
+.workshop-category-list {
+  display: flex;
+  padding: 0.5em 0.5em 0.5em 0;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1px;
+  flex-direction: row;
+  align-items: flex-start;
+  vertical-align: middle;
+}
+
+.workshop-category-item {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5em;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  line-height: 40px;
+  min-width: 128px;
+  align-content: flex-end;
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 319px) and (max-width: 991px) {
 
   .category__text {
@@ -46,5 +68,25 @@
 
   .list__style {
     font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 319px) and (max-width: 640px){
+  .workshop-category-list {
+    flex-direction: column;
+    width: 100%;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .workshop-category-item {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    padding-bottom: 0.3em;
+    line-height: 40px;
+    min-width: 235px;
+    align-content: flex-end;
+    padding-left: 0;
   }
 }

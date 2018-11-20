@@ -65,30 +65,33 @@ class ProductPage extends React.Component {
                     </div>
                     <div className="workshop-page-container-with-links">
                         <h2 className="workshop-title">{product.name}</h2>
+                        <div className="workshop-product-page-container">
+                            <div><img src={path} /></div>
+                            <ul>
+                                <li className="list__style">{`Cartoon: ${product.category.name}`}</li>
+                                <li className="list__style">{`${product.description}`}</li>
+                                <li className="list__style">{`price: ${product.price}`}</li>
 
-                        <ul>
-                            <li className="list__style"><img src={path} /></li>
-                            <li className="list__style">{`Cartoon: ${product.category.name}`}</li>
-                            <li className="list__style">{`${product.description}`}</li>
-                            <li className="list__style">{`price: ${product.price}`}</li>
-                        </ul>
-                        <div className="list__style product-page">
-                            <p>Choose number of posters:</p>
-                            <form
-                                onSubmit={this.addToCartOnClick}
-                                className="add-option"
-                            >
-                                <NumberInput value={quantity}
-                                             min={0}
-                                             max={100}
-                                             onChange={this.handleProductAmountChange()} />
-                                <button className="standart__button workshop-add-to-cart">
-                                    Add to cart</button>
-                            </form>
-                            <ToastContainer className="workshop-toast-position"
-                                            position={ToastContainer.POSITION.TOP_RIGHT}
-                                            lightBackground
-                                            store={ToastStore}/>
+
+                                <li className="list__style product-page">
+                                    <p>Choose number of posters:</p>
+                                    <form
+                                        onSubmit={this.addToCartOnClick}
+                                        className="add-option"
+                                    >
+                                        <NumberInput value={quantity}
+                                                     min={0}
+                                                     max={100}
+                                                     onChange={this.handleProductAmountChange()} />
+                                        <button className="standart__button workshop-add-to-cart">
+                                            Add to cart</button>
+                                    </form>
+                                    <ToastContainer className="workshop-toast-position"
+                                                    position={ToastContainer.POSITION.TOP_RIGHT}
+                                                    lightBackground
+                                                    store={ToastStore}/>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
