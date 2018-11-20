@@ -68,9 +68,15 @@ class ProductPage extends React.Component {
                         <div className="workshop-product-page-container">
                             <div><img src={path} /></div>
                             <ul>
-                                <li className="list__style">{`Cartoon: ${product.category.name}`}</li>
-                                <li className="list__style">{`${product.description}`}</li>
-                                <li className="list__style">{`price: ${product.price}`}</li>
+                                <li className="list__style">
+                                    <p>{`Cartoon: ${product.category.name}`}</p>
+                                </li>
+                                <li className="list__style">
+                                    <p>{`${product.description}`}</p>
+                                </li>
+                                <li className="list__style">
+                                    <p>{`price: ${product.price}`}</p>
+                                </li>
 
 
                                 <li className="list__style product-page">
