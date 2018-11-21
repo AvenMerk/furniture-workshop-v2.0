@@ -21,7 +21,7 @@ class HomePage extends React.Component {
                 : <div className="workshop-page-container" style={{opacity: isFetching ? 0.5 : 1}}>
                     <h2 className="workshop-title">Welcome to the world of cartoon posters!</h2>
                     <div>
-                        <p className="category__text">Cartoons:</p>
+                        <p className="category__text">Pick your favourite show:</p>
                         <Category category={category}/>
                     </div>
                 </div>
