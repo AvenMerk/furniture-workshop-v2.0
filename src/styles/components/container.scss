@@ -31,10 +31,9 @@
   flex-direction: row;
   margin-top: 1em;
   margin-bottom: 1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border-top: rgba(63, 25, 10, 0.3) solid 1px;
-  border-bottom: rgba(63, 25, 10, 0.3) solid 1px;
+  padding: 1em;
+  border: rgba(63, 25, 10, 0.3) solid 1px;
+  box-shadow: -3px 3px 15px 3px #ccc;
 }
 
 .workshop-product-page-container {
@@ -55,7 +54,62 @@
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 640px) {
+@media screen and (min-width: 320px) and (max-width: 360px) {
+
+  .workshop-page-container-with-links {
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .workshop-container {
+    width: 100%;
+    margin: 0;
+    min-width: fit-content;
+  }
+
+  .workshop-page-container {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: 0;
+    min-width: fit-content;
+  }
+
+  .workshop-container {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .workshop-container-with-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .workshop-page-container-cart {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin: 0;
+    min-width: fit-content;
+  }
+
+  .workshop-product-page-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .workshop-products-list-page-container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width: 640px) {
   .workshop-container {
     width: 100%;
     margin: 0;
