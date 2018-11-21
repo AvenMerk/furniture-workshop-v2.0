@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Pangolin', cursive;
   background-color: #ffffff;
   margin: 0;
   display: flex;
@@ -23,6 +23,7 @@ li {
 h2 {
   padding: 2em 0 1.5em 0;
   letter-spacing: 2px;
+
 }
 
 input[type=number] {
@@ -32,6 +33,7 @@ input[type=number] {
 p {
   font-size: large;
   letter-spacing: 1px;
+  font-family: 'Pangolin', cursive;
 }
 
 ul {
@@ -40,6 +42,14 @@ ul {
   flex-direction: row;
   padding-left: 0;
   justify-content: space-around;
+}
+
+a {
+  font-family: 'Pangolin', cursive;
+}
+
+.workshop-title {
+  font-family: 'Pangolin', cursive;
 }
 
 @media screen and (min-width: 319px) and (max-width: 991px) {
