@@ -27,11 +27,15 @@ class ProductsListPage extends React.Component {
                     </div>
                     <div className="workshop-page-container-with-links">
                         <h2 className="workshop-title">Posters:</h2>
-                        {products.filter(product => product.categoryId === id).map((product, index) =>
-                            <div className={''} key={index}>
-                                <ProductPreview id={product.productId} name={product.name} description={product.description} />
-                            </div>
-                        )}
+                        <ul>
+                            {products.filter(product => product.categoryId === id).map((product, index) =>
+                                <div className={''} key={index}>
+                                    <ProductPreview id={product.productId}
+                                                    name={product.name}
+                                                    description={product.description} />
+                                </div>
+                            )}
+                        </ul>
                     </div>
                 </div>
             }
