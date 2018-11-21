@@ -67,7 +67,7 @@ class ProductPage extends React.Component {
                         <h2 className="workshop-title">{product.name}</h2>
                         <div className="workshop-product-page-container">
                             <div className="workshop-products-list-image"><img src={path} /></div>
-                            <div className="list__style">
+                            <div className="workshop-page-container-with-links">
                                 <p>{`Cartoon: ${product.category.name}`}</p>
                                 <p>{`${product.description}`}</p>
                                 <p>{`price: ${product.price}`}</p>
