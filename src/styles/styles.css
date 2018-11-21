@@ -209,7 +209,9 @@ a:link, a:visited {
   border: rgba(63, 25, 10, 0.3) solid 1px;
   box-shadow: -3px 3px 15px 3px #ccc;
   width: fit-content;
-  margin-right: 0; }
+  margin-right: 0;
+  min-width: 240px;
+  text-align: center; }
 
 .workshop-product-page-container {
   display: flex;
@@ -427,9 +429,8 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 100%;
   width: 100%;
-  min-height: 3.1em;
+  height: 3.1em;
   border: 1px solid #ccc;
   background-color: white; }
 
@@ -528,7 +529,7 @@ label {
     width: 90%; } }
 
 .workshop-products-list-image {
-  min-width: 235px;
+  min-width: fit-content;
   display: flex;
   justify-content: space-around;
   height: fit-content; }
