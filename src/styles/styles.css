@@ -3,7 +3,7 @@ html {
   min-width: fit-content; }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Pangolin', cursive;
   background-color: #ffffff;
   margin: 0;
   display: flex;
@@ -25,7 +25,8 @@ input[type=number] {
 
 p {
   font-size: large;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  font-family: 'Pangolin', cursive; }
 
 ul {
   display: flex;
@@ -33,6 +34,12 @@ ul {
   flex-direction: row;
   padding-left: 0;
   justify-content: space-around; }
+
+a {
+  font-family: 'Pangolin', cursive; }
+
+.workshop-title {
+  font-family: 'Pangolin', cursive; }
 
 @media screen and (min-width: 319px) and (max-width: 991px) {
   .workshop-title {
@@ -49,7 +56,7 @@ ul {
   background-color: rgba(45, 22, 9, 0.79);
   color: white;
   border: none;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Pangolin', cursive;
   font-size: 1rem;
   letter-spacing: 1px;
   padding: 0.8em; }
@@ -65,7 +72,7 @@ ul {
   border: 0;
   background: none;
   text-decoration: underline;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Pangolin', cursive;
   font-size: 0.9rem;
   letter-spacing: 0.8px; }
 
@@ -89,7 +96,7 @@ ul {
   background-color: #2d1609; }
 
 #logo {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Pangolin', cursive;
   font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: 10px;
@@ -102,7 +109,7 @@ ul {
   color: #3a3a3a;
   background-color: #efefef;
   margin: 0;
-  font-family: 'Noto Serif JP', sans-serif;
+  font-family: 'Pangolin', cursive;
   border-bottom: 0.1em solid #3f190a;
   align-items: center;
   flex-direction: row;
@@ -117,7 +124,7 @@ ul {
 .custom-link, .custom-link:hover {
   text-align: center;
   text-decoration: none;
-  padding: 1.2em; }
+  padding: 0.8em; }
 
 /* unvisited link */
 a:link, a:visited {
@@ -157,7 +164,7 @@ a:link, a:visited {
 .workshop-footer {
   color: #3a3a3a;
   background-color: #efefef;
-  font-family: 'Noto Serif JP', sans-serif;
+  font-family: 'Pangolin', cursive;
   border-top: 0.02em solid rgba(63, 25, 10, 0.79);
   width: 100%;
   position: fixed;
@@ -191,8 +198,8 @@ a:link, a:visited {
   flex-direction: row; }
 
 .workshop-page-container-with-links {
-  margin-right: 10%;
-  padding-left: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
   width: 90%; }
 
 .workshop-page-container {
@@ -208,9 +215,8 @@ a:link, a:visited {
   padding: 1em;
   border: rgba(63, 25, 10, 0.3) solid 1px;
   box-shadow: -3px 3px 15px 3px #ccc;
-  width: fit-content;
   margin-right: 0;
-  min-width: 240px;
+  width: 250px;
   text-align: center; }
 
 .workshop-product-page-container {
@@ -323,13 +329,14 @@ a:link, a:visited {
 .category__text {
   font-size: 1.2rem;
   padding-left: 1em;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  font-family: 'Pangolin', cursive; }
 
 .list__style {
   display: flex;
   justify-content: space-between;
   padding: 0.5em 0.5em 0.5em 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Pangolin', cursive;
   letter-spacing: 1px;
   flex-direction: column;
   align-items: flex-start; }
@@ -343,12 +350,13 @@ a:link, a:visited {
   margin-top: 2em; }
 
 .tab {
-  margin-left: 1em; }
+  margin-left: 1em;
+  font-family: 'Pangolin', cursive; }
 
 .workshop-category-list {
   display: flex;
   padding: 0.5em 0.5em 0.5em 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Pangolin', cursive;
   letter-spacing: 1px;
   flex-direction: row;
   align-items: flex-start;
@@ -382,7 +390,7 @@ a:link, a:visited {
     padding-top: 2em;
     padding-bottom: 0.3em;
     line-height: 40px;
-    min-width: 235px;
+    min-width: 200px;
     align-content: flex-end;
     padding-left: 0; } }
 
@@ -391,7 +399,8 @@ a:link, a:visited {
   flex-direction: row;
   align-items: stretch;
   height: 100%;
-  min-width: fit-content; }
+  min-width: fit-content;
+  max-width: 5em; }
 
 .add-option__cart {
   width: 5em;
@@ -399,7 +408,8 @@ a:link, a:visited {
 
 @media screen and (min-width: 320px) and (max-width: 540px) {
   .add-option {
-    width: 100%; } }
+    width: 100%;
+    max-width: 100%; } }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -483,7 +493,8 @@ input::-webkit-inner-spin-button {
 .workshop-registration-form-row {
   margin: 0.5em 0 0.5em 1em;
   width: 100%;
-  letter-spacing: 0.8px; }
+  letter-spacing: 0.8px;
+  font-family: 'Pangolin', cursive; }
 
 label {
   padding-right: 1em; }
