@@ -25,7 +25,7 @@ export const receiveProduct = (json) => ({
 
 export const fetchProducts = () => (dispatch) => {
     dispatch(requestProducts());
-    return fetch(`http://178.62.13.249:3130/api/product/list`)
+    return fetch(`https://workshop.fedor-bystrov.me/api/product/list`)
         .then(
             response => response.json(),
             error => console.log("Something went wrong", error)
@@ -35,7 +35,7 @@ export const fetchProducts = () => (dispatch) => {
 
 export const fetchProduct = (id) => (dispatch) => {
     dispatch(requestProduct());
-    return fetch(`http://178.62.13.249:3130/api/product/${id}`)
+    return fetch(`https://workshop.fedor-bystrov.me/api/product/${id}`)
         .then(
             response => response.json(),
             error => console.log("Something went wrong", error)

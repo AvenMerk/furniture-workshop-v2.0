@@ -18,7 +18,7 @@ export const receiveCartError = (error) => ({
 
 export const createCart = (cart) => (dispatch) => {
     dispatch(requestCart());
-    return fetch('http://178.62.13.249:3130/api/cart',
+    return fetch('https://workshop.fedor-bystrov.me/api/cart',
         {
             method: "POST",
             headers: {
