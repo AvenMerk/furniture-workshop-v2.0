@@ -23,7 +23,7 @@ class ProductsListPage extends React.Component {
                 ? (isFetching ? <h2 className="workshop-page-container">Loading...</h2> : <h2>Empty.</h2>)
                 : <div className="workshop-container-with-links" style={{opacity: isFetching ? 0.5 : 1}}>
                     <div className="workshop-link-to-page">
-                        <Link to="/" exact={'true'}> > Cartoons</Link>
+                        <Link to="/" exact={'true'} className="workshop-link"> > Cartoons</Link>
                     </div>
                     <div className="workshop-page-container-with-links">
                         <h2 className="workshop-title">Posters:</h2>
