@@ -19,6 +19,17 @@
   display: inline-block;
 }
 
+.workshop-footer-link {
+  text-align: center;
+  text-decoration: none;
+  color: #3a3a3a;
+}
+
+.workshop-footer-link:hover, .workshop-footer-link:active {
+  color: #2d1609;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 320px) and (max-width: 640px) {
   .workshop-footer {
     height: 40px;
