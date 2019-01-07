@@ -127,7 +127,7 @@ a {
   padding: 0.8em; }
 
 /* unvisited link */
-a:link, a:visited {
+.custom-link:link, .custom-link:visited {
   color: #2d1609; }
 
 /* mouse over link */
@@ -178,6 +178,15 @@ a:link, a:visited {
   vertical-align: bottom;
   text-decoration: none;
   display: inline-block; }
+
+.workshop-footer-link {
+  text-align: center;
+  text-decoration: none;
+  color: #3a3a3a; }
+
+.workshop-footer-link:hover, .workshop-footer-link:active {
+  color: #2d1609;
+  text-decoration: none; }
 
 @media screen and (min-width: 320px) and (max-width: 640px) {
   .workshop-footer {
@@ -528,6 +537,9 @@ label {
   flex-direction: column;
   width: 20%;
   min-width: 118px; }
+
+.workshop-link:link, .workshop-link:visited {
+  color: #2d1609; }
 
 @media screen and (min-width: 320px) and (max-width: 990px) {
   .workshop-link-to-page {
