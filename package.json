@@ -1,5 +1,5 @@
 {
-  "name": "furniture-service",
+  "name": "posters-shop",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -33,7 +33,6 @@
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build-deploy": "npm run build && now build && now alias build https://build-hbkmby16s.now.sh/ https://poster-service.now.sh/"
+    "eject": "react-scripts eject"
   }
 }
