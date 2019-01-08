@@ -1,6 +1,6 @@
 @import '../base/settings.scss';
 
-#logo {
+#logo, #logo:hover {
   //font-family: 'Great Vibes', cursive;
   font-family: 'Pangolin', cursive;
   font-size: 2.5rem;
@@ -8,6 +8,8 @@
   letter-spacing: 10px;
   padding-left: 0.7em;
   margin: 0;
+  text-decoration: none;
+  color: #2d1609;
 }
 
 .workshop-header {

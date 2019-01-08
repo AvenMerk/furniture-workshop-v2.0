@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const Header = () => (
     <React.Fragment>
         <header className="workshop-header">
-            <p id="logo">LOGO</p>
+            <Link to="/" id="logo" exact={'true'}>LOGO</Link>
+            {/*<p id="logo">LOGO</p>*/}
             <Link to="/" className="custom-link workshop-header-text" exact={'true'}>Cartoons</Link>
             <Link to="/about" className="custom-link workshop-header-text">About</Link>
             <Link to="/cart" className="custom-link workshop-header-text">Cart</Link>
