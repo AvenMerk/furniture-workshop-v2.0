@@ -63,7 +63,7 @@ class ProductPage extends React.Component {
                         <Link to="/" exact={'true'} className="workshop-link"> > Cartoons </Link>
                         <Link to="/products" className="tab workshop-link" exact={'true'}> > {product.category.name}</Link>
                     </div>
-                    <div className="workshop-page-container-with-links">
+                    <div className="workshop-products-container">
                         <h2 className="workshop-title">{product.name}</h2>
                         <div className="workshop-product-page-container">
                             <div className="workshop-products-list-image"><img src={path} /></div>

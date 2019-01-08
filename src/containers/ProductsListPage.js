@@ -25,7 +25,7 @@ class ProductsListPage extends React.Component {
                     <div className="workshop-link-to-page">
                         <Link to="/" exact={'true'} className="workshop-link"> > Cartoons</Link>
                     </div>
-                    <div className="workshop-page-container-with-links">
+                    <div className="workshop-products-container">
                         <h2 className="workshop-title">Posters:</h2>
                         <ul>
                             {products.filter(product => product.categoryId === id).map((product, index) =>

@@ -18,6 +18,11 @@
   margin-right: 5%;
   margin-left: 5%;
   width: 90%;
+  padding-top: 10px;
+}
+
+.workshop-products-container {
+  width: 100%;
 }
 
 .workshop-page-container {
@@ -29,12 +34,10 @@
 .workshop-products-list-page-container {
   display: flex;
   flex-direction: column;
-  margin-top: 1em;
-  margin-bottom: 1em;
   padding: 1em;
   border: rgba(63, 25, 10, 0.3) solid 1px;
   box-shadow: -3px 3px 15px 3px #ccc;
-  margin-right: 0;
+  margin: 1em 5px;
   width: 250px;
   text-align: center;
 }
@@ -50,19 +53,21 @@
     margin-left: 20%;
     margin-right: 20%;
   }
+
   .workshop-page-container-cart {
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
+  }
+
+  .workshop-container-with-links {
+    margin-right: 14%;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 360px) {
 
   .workshop-page-container-with-links {
-    padding-right: 10px;
-    padding-left: 10px;
-    width: 100%;
     margin: 0;
   }
 
@@ -110,6 +115,11 @@
   .workshop-products-list-page-container {
     flex-direction: column;
   }
+
+  .workshop-products-container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 @media screen and (min-width: 361px) and (max-width: 640px) {
@@ -138,10 +148,13 @@
   }
 
   .workshop-page-container-with-links {
-    padding-right: 5%;
-    padding-left: 5%;
     width: 100%;
     margin: 0;
+  }
+
+  .workshop-products-container {
+    padding-right: 5%;
+    padding-left: 5%;
   }
 
   .container {
@@ -176,9 +189,7 @@
   }
 
   .workshop-page-container-with-links {
-    margin-right: 10%;
-    padding-left: 5%;
-    width: 90%;
+    margin: 0;
   }
 
   .workshop-product-page-container {
@@ -189,6 +200,11 @@
   .workshop-container-with-links {
     display: flex;
     flex-direction: column;
+  }
+
+  .workshop-products-container {
+    padding-right: 5%;
+    padding-left: 5%;
   }
 
 }
