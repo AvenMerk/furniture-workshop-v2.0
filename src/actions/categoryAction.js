@@ -13,7 +13,7 @@ export const receiveCategory = (json) => ({
 
 export const fetchCategory = () => (dispatch) => {
     dispatch(requestCategory());
-    return fetch(`https://workshop.fedor-bystrov.me/api/category/list`)
+    return fetch(`https://api.fedor-bystrov.me/workshop/category/list`)
         .then(
             response => response.json(),
             error => console.log("Something went wrong", error)
