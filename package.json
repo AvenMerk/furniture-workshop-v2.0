@@ -2,6 +2,7 @@
   "name": "posters-shop",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://avenmerk.ru/postershop",
   "dependencies": {
     "bootstrap": "^4.1.3",
     "grommet": "^1.11.0",

@@ -54,7 +54,7 @@ class ProductPage extends React.Component {
     render() {
         const {product, isFetching} = this.props;
         const {quantity} = this.state;
-        const path = "/img/" + this.state.productId + "_medium.jpg";
+        const path = "/postershop/img/" + this.state.productId + "_medium.jpg";
         console.log(path);
         return <React.Fragment>
             {product

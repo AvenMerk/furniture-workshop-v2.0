@@ -10,16 +10,16 @@ import HomePage from '../containers/HomePage';
 import CartList from '../containers/Cart'
 
 const AppRouter = () => (
-    <BrowserRouter>
+    <BrowserRouter basename="/postershop">
         <React.Fragment>
             <div className="workshop-container-full">
                 <Header/>
                 <Switch>
-                    <Route path="postershop/" component={HomePage} exact={true}/>
-                    <Route path="postershop/about" component={AboutPage}/>
-                    <Route path="postershop/products" component={ProductsListPage}/>
-                    <Route path="postershop/product/:id" component={ProductPage}/>
-                    <Route path="postershop/cart" component={CartList}/>
+                    <Route path="/" component={HomePage} exact={true}/>
+                    <Route path="/about" component={AboutPage}/>
+                    <Route path="/products" component={ProductsListPage}/>
+                    <Route path="/product/:id" component={ProductPage}/>
+                    <Route path="/cart" component={CartList}/>
                     <Route component={NotFoundPage}/>
                 </Switch>
                 <Footer/>
